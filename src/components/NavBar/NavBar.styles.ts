@@ -13,7 +13,10 @@ export const useStyles = makeStyles({
         backgroundColor: "#46d0d9",
     },
     img:{
-        height: '250px',
-        width: '250px',
+        height: '50px',
+        width: '50px',
+    },
+    centre_content:{
+        paddingLeft:'50%',
     }
 })
