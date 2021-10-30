@@ -1,28 +1,22 @@
 import React from "react";
 import Homepage from './components/Homepage'
+import LoginPage from "./components/MainPage";
 import { ThemeProvider, createTheme } from "@mui/material";
 import CssBaseline from "@mui/material/CssBaseline";
+import {BrowserRouter as Router,Switch,Route } from 'react-router-dom';
 
-const theme = createTheme({
-  palette:{
-    primary:{
-      main:'#46d0d9'
-    },
-    background:{
-      default:'#46d0d9'
-    },
-    secondary:{
-      main:'#143656'
-    },
-  }
-})
+
 const App:React.FC=()=>{
   return(
-    <ThemeProvider theme={theme}>
-      <CssBaseline/>
-      <Homepage/>
-    </ThemeProvider>
+    <>
+      
+        <Router>
+            <Route exact path="/" component={Homepage}/>
+            <Route exact path="/login" component={LoginPage}/>
+        </Router>
     
+    </>
+   
   )
 }
  
