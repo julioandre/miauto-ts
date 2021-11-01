@@ -16,7 +16,7 @@ const Search = styled('div')(({ theme }) => ({
     '&:hover': {
       backgroundColor: alpha(theme.palette.common.white, 0.25),
     },
-    margin:'0 20% 5% 20%',
+    margin:'1% 20% 5% 20%',
     width: '55%',
    
     
@@ -57,14 +57,15 @@ const SearchBar:React.FC=()=>{
     
     return(
         
-            <><Typography variant='h4' align='center' marginTop='2%'>Garages</Typography><Search>
+      <Paper variant="outlined" sx={{ borderRadius:' 0 0 15px 15px' }} square={false} elevation={6}>
+        <Typography variant='h4' align='center' marginTop='2%'>Garages</Typography><Search>
         <SearchIconWrapper>
           <SearchIcon />
         </SearchIconWrapper>
         <StyledInputBase
           placeholder="Search…"
           inputProps={{ 'aria-label': 'search' }} />
-      </Search></>
+      </Search></Paper>
 
         
     )
