@@ -34,7 +34,7 @@ const MainPage:React.FC=()=>{
             <CssBaseline/>
             <NavBar/>
             <Jumbotron/>
-           <Paper variant="outlined" elevation={6} className={classes.paper}>
+           <Paper variant="outlined" sx={{ borderRadius:'15px 15px 0 0' }} square={false} elevation={6} className={classes.paper}>
               <Grid container>
                 <Grid item xs={12} md={6}>
                   <Box sx={{ width:300,height:300 }} className={classes.box}>

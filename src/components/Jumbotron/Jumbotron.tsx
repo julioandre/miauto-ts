@@ -7,7 +7,7 @@ const Jumbotron:React.FC=()=>{
     const classes = useStyles()
     return(
         <>
-        <Container maxWidth="lg"> 
+        <Container maxWidth="lg" className={classes.jumbotronheight}> 
             <Typography color="secondary" variant="h3" align="center">MiAuto Web Platform</Typography>
             <Grid container className={classes.childGrid}> 
                 <Grid item xs={12} md={6}>

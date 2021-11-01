@@ -8,7 +8,10 @@ export const useStyles = makeStyles({
     childGrid:{
         maxWidth:'70%',
         marginLeft: '15%',
-        marginTop: '5%',
-        marginBottom:'5%',
+        marginTop: '25%',
+        marginBottom:'25%',
     },
+    jumbotronheight:{
+        height:'60%'
+    }
 })
