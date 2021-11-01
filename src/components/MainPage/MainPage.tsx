@@ -1,5 +1,5 @@
-import { Box, createTheme, CssBaseline, Grid, IconButton, Paper, TextField, ThemeProvider, Typography } from '@mui/material';
-import React, { useState } from 'react';
+import { Box, createTheme, CssBaseline, Grid,  Paper,  ThemeProvider, Typography } from '@mui/material';
+// import React, { useState } from 'react';
 import NavBar from '../NavBar';
 import { useStyles } from './MainPage.styles';
 import Jumbotron from '../Jumbotron';
@@ -20,14 +20,14 @@ const theme = createTheme({
     }
   })
 
-const initialValues={
-  username:"",
-  password:"",
-}
+// const initialValues={
+//   username:"",
+//   password:"",
+// }
 const MainPage:React.FC=()=>{
   const classes = useStyles();
 
-  const [values,handleValues] = useState(initialValues)
+  // const [values,handleValues] = useState(initialValues)
     return(
         <>
         <ThemeProvider theme={theme}>
@@ -37,7 +37,7 @@ const MainPage:React.FC=()=>{
            <Paper variant="outlined" sx={{ borderRadius:'15px 15px 0 0' }} square={false} elevation={6} className={classes.paper}>
               <Grid container>
                 <Grid item xs={12} md={6}>
-                  <Box sx={{ width:300,height:300 }} className={classes.box}>
+                  <Box sx={{ width:300,height:315 }} className={classes.box}>
                   <img src={logo} alt="Miauto" className={classes.img}/>
                   <Typography color="secondary" variant="h6">Lorem Ipsum Solo do</Typography>
                   <Typography color="secondary" variant="h6">Lorem Ipsum Solo do This is Mi Auto </Typography>
