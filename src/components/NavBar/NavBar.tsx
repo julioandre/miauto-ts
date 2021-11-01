@@ -1,9 +1,10 @@
-import { AppBar, IconButton, Toolbar, Typography, useMediaQuery ,useTheme} from '@mui/material';
+import { AppBar, Button, IconButton, Link, Toolbar, useMediaQuery ,useTheme} from '@mui/material';
 
 import React from 'react';
 import logo from '../../assets/logo.png';
 import { useStyles } from './NavBar.styles';
 import DrawerComponent from '../Drawer/Drawer';
+import { Box } from '@mui/system';
 
 
 
@@ -16,18 +17,31 @@ const NavBar:React.FC=()=>{
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down("md"));
     return(
+        <Box sx = {{ flexGrow:1 }}>
        <AppBar position ="static">
            <Toolbar>
            
            {isMobile?(<DrawerComponent/>):(
             <>
-            <IconButton size="large" edge="start" sx={{ mr:3 }}>
+            <Box  sx={{ flexGrow:1 }}> 
+            <IconButton size="large" edge="start">
                 <img src={logo} alt="Miauto" className={classes.img}/>   
            </IconButton>
-             <Typography className={classes.centre_content} variant='h6' sx={{ mr:4  }}>Home</Typography>
-             <Typography  variant='h6' sx={{ mr:4}}>Garage</Typography>
-             <Typography  variant='h6' sx={{ mr:4}}>Register</Typography>
-             <Typography variant='h6' sx={{ mr:4 }}>Contact</Typography>
+           </Box>
+         
+           <Button href="/mainpage" color="inherit">Home</Button>
+        
+           <Button href="/garages" color="inherit" >Garage</Button>
+          
+           <Button  href="/register" color="inherit" >Register</Button>
+         
+           
+           <Button color="inherit" >Contact</Button>
+          
+             
+             
+             
+              
              {/* <IconButton size="large" edge="start" sx={{ ml:15 }}>
                   <AccountCircle fontSize='large'/>
                   <Typography variant="h6">Sign In</Typography>
@@ -38,6 +52,7 @@ const NavBar:React.FC=()=>{
           
            </Toolbar>
        </AppBar>
+    </Box>
     )
 }
 export default NavBar;

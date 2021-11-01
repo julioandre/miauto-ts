@@ -17,6 +17,9 @@ export const useStyles = makeStyles({
         width: '50px',
     },
     centre_content:{
-        paddingLeft:'50%',
+        marginLeft:'50%',
+    },
+    div:{
+        marginRight:"50%"
     }
 })
