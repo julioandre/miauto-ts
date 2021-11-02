@@ -1,6 +1,6 @@
 import React from "react";
 import { useStyles } from "./Homepage.styles";
-import {Typography, Button,Grid, createTheme, ThemeProvider, CssBaseline, Link} from "@mui/material";
+import {Typography, Button,Grid, createTheme, ThemeProvider, CssBaseline} from "@mui/material";
 import logo from '../../assets/logo.png';
 import { Circle } from "react-konva";
 
@@ -29,9 +29,9 @@ const Homepage:React.FC=()=>{
                 <Grid item sm = {12}lg={6}>
                     <Typography variant='h1'>MiAuto</Typography>
                     <p> Book appointments for car maintenance. Buy car parts and have your car fixed</p>
-                    <Link href='/login'>
-                        <Button variant="contained" color="secondary">Start</Button>
-                    </Link>
+                    
+                        <Button href="/mainpage"  variant="contained" color="secondary">Start</Button>
+                    
                 </Grid>
                 <Grid item lg={6}>
                     <img src={logo} alt="Miauto" className={classes.img}/>
