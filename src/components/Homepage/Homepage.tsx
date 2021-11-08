@@ -3,11 +3,13 @@ import { useStyles } from "./Homepage.styles";
 import {Typography, Button,Grid, createTheme, ThemeProvider, CssBaseline} from "@mui/material";
 import logo from '../../assets/logo.png';
 import { Circle } from "react-konva";
+import HomePageJumbotron from "../HomePageJumbotron";
+import NavBar from "../NavBar";
 
 const theme = createTheme({
     palette:{
       primary:{
-        main:'#46d0d9'
+        main:'#ffffff'
       },
       background:{
         default:'#46d0d9'
@@ -15,6 +17,11 @@ const theme = createTheme({
       secondary:{
         main:'#143656'
       },
+    },
+    typography:{
+      allVariants:{
+        color:'white'
+      }
     }
   })
 
@@ -24,7 +31,8 @@ const Homepage:React.FC=()=>{
         <>
         <ThemeProvider theme={theme}>
         <CssBaseline/>
-        <div className={classes.jumbotron}>
+        <HomePageJumbotron/>
+        {/* <div className={classes.jumbotron}>
             <Grid container spacing={12}>
                 <Grid item sm = {12}lg={6}>
                     <Typography variant='h1'>MiAuto</Typography>
@@ -39,7 +47,7 @@ const Homepage:React.FC=()=>{
                 </Grid>
             </Grid>
            
-        </div>
+        </div> */}
         </ThemeProvider>
 
         </>

@@ -6,12 +6,8 @@ export const useStyles = makeStyles({
         height:40,
         marginTop:'25%',
         marginLeft:'20%'
-
-
-    },
-    body:{
-        backgroundColor: "#46d0d9",
-    },
+},
+    
     img:{
         height: '50px',
         width: '50px',
