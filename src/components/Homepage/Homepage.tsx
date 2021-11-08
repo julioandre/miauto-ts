@@ -1,10 +1,9 @@
 import React from "react";
 import { useStyles } from "./Homepage.styles";
 import {Typography, Button,Grid, createTheme, ThemeProvider, CssBaseline} from "@mui/material";
-import logo from '../../assets/logo.png';
-import { Circle } from "react-konva";
 import HomePageJumbotron from "../HomePageJumbotron";
 import NavBar from "../NavBar";
+import Banner from "../Banner";
 
 const theme = createTheme({
     palette:{
@@ -18,11 +17,7 @@ const theme = createTheme({
         main:'#143656'
       },
     },
-    typography:{
-      allVariants:{
-        color:'white'
-      }
-    }
+  
   })
 
 const Homepage:React.FC=()=>{
@@ -32,6 +27,7 @@ const Homepage:React.FC=()=>{
         <ThemeProvider theme={theme}>
         <CssBaseline/>
         <HomePageJumbotron/>
+        <Banner/>
         {/* <div className={classes.jumbotron}>
             <Grid container spacing={12}>
                 <Grid item sm = {12}lg={6}>

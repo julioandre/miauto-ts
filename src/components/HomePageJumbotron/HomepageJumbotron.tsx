@@ -1,10 +1,22 @@
-import { Box, Button, Container, Divider, FormControl, FormLabel, Grid, InputAdornment, Link, Paper, TextField, Typography } from '@mui/material';
+import { Box, Button, Container, createTheme, CssBaseline, Divider, FormControl, FormLabel, Grid, InputAdornment, Link, Paper, TextField, ThemeProvider, Typography } from '@mui/material';
 import React, { useState } from 'react'
 import {useStyles} from './HomePageJumbotron.styles';
 import RoomIcon from '@mui/icons-material/Room';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import NavBar from '../NavBar';
 
+const theme = createTheme({
+    typography:{
+      allVariants:{
+        color:'white'
+      }
+    },
+    palette:{
+        primary:{
+          main:'#ffffff'
+        },
+      },
+  })
 
 const HomePageJumbotron:React.FC=()=>{
     const classes = useStyles();
@@ -18,15 +30,17 @@ const HomePageJumbotron:React.FC=()=>{
         }
     }
     return(
-        <Paper className={classes.container}>
+        <ThemeProvider theme={theme}>
+            <CssBaseline/>
+            <Paper className={classes.container}>
             <NavBar/>
             <Grid container>
                 <Grid xs={12} md={6}>
                     <div className={classes.div}> 
-                    <Typography sx={{ my:2 }} align='center' variant='h3'>Car Repair & Servicing Made Easy</Typography>
-                    <Typography sx={{ my:2 }} align='center' variant='h4'>Unbeatable Prices, mechanics you can trust, 2 hour service at any location in Quito</Typography>
-                    <Typography sx={{ my:2 }} align='center' variant='h4'>10% off on first repair or service</Typography>
-                    <Typography sx={{ my:2 }} align='center' variant='h5'>Various Garages all over Ecuador</Typography>
+                    <Typography sx={{ my:0.2}} align='center' variant='h4'>Car Repair & Servicing Made Easy</Typography>
+                    <Typography sx={{ my:0.2 }} align='center' variant='h5'>Unbeatable Prices, mechanics you can trust, 2 hour service at any location in Quito</Typography>
+                    <Typography sx={{ my:0.2 }} align='center' variant='h5'>10% off on first repair or service</Typography>
+                    <Typography sx={{ my:0.2 }} align='center' variant='h6'>Various Garages all over Ecuador</Typography>
                     </div>
 
                 </Grid>
@@ -53,6 +67,8 @@ const HomePageJumbotron:React.FC=()=>{
                 </Grid>
             </Grid>
         </Paper>
+        </ThemeProvider>
+        
         
     )
 
