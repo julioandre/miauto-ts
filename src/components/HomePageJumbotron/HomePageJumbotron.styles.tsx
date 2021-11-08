@@ -2,7 +2,8 @@ import { makeStyles } from "@mui/styles";
 import mechanic from '../../assets/mechanic.jpeg'
 export const useStyles = makeStyles((theme)=>({
     container:{
-        backgroundImage:`url(${mechanic})`
+        backgroundImage:`url(${mechanic})`,
+        backgroundSize:'cover'
     },
     paper:{
         backgroundColor: 'rgba(0,0,0,0.5)',

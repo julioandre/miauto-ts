@@ -55,11 +55,15 @@ const HomePageJumbotron:React.FC=()=>{
                             <Link sx={{ m:1 }} href="#" underline="always">
                                 {'I do not know where I am'}
                             </Link>
-                            <Button sx={{ m:1 }} className={classes.boxelements} onSubmit={handleSubmit} variant="contained" color="success">SEARCH</Button>
+                            <Button sx={{ m:1 }} className={classes.boxelements} onSubmit={handleSubmit}
+                             variant="contained" color="success">SEARCH</Button>
                             <Divider variant='middle' sx={{ width:'90%' }} />
-                            <Typography sx={{ m:1 }} align='center' variant="h5">NOT SURE WHATS WRONG?</Typography>
-                            <Typography className={classes.boxelements} sx={{ m:0.5 }} align='center' variant="body1">Not a problem, our in-house mechanics team is here to assist.</Typography>
-                            <Typography className={classes.boxelements} sx={{ m:0.5 }} align='center' variant="body1">Fill in this form with your vehicle registration, postcode, and phone number along with a brief description of the problem and they can help you.</Typography>
+                            <Typography sx={{ m:1 }} align='center' variant="h5">NOT SURE WHATS WRONG?
+                            </Typography>
+                            <Typography className={classes.boxelements} sx={{ m:0.5 }} align='center' 
+                            variant="body1">Not a problem, our in-house mechanics team is here to assist.</Typography>
+                            <Typography className={classes.boxelements} sx={{ m:0.5 }} align='center' 
+                            variant="body1">Fill in this form with your vehicle registration, postcode, and phone number along with a brief description of the problem and they can help you.</Typography>
                             <Button sx={{ m:2 }} className={classes.boxelements} variant="contained" color="success">TECHNICAL ASSISTANCE FORM</Button>
                         </FormControl>
                         
