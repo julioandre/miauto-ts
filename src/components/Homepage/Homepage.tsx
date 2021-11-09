@@ -2,8 +2,9 @@ import React from "react";
 import { useStyles } from "./Homepage.styles";
 import {Typography, Button,Grid, createTheme, ThemeProvider, CssBaseline} from "@mui/material";
 import HomePageJumbotron from "../HomePageJumbotron";
-import NavBar from "../NavBar";
 import Banner from "../Banner";
+import Footer from "../Footer";
+import HomepageRegister from "../HomepageRegister/HomepageRegister";
 
 const theme = createTheme({
     palette:{
@@ -28,6 +29,8 @@ const Homepage:React.FC=()=>{
         <CssBaseline/>
         <HomePageJumbotron/>
         <Banner/>
+        <HomepageRegister/> 
+        <Footer/>
         {/* <div className={classes.jumbotron}>
             <Grid container spacing={12}>
                 <Grid item sm = {12}lg={6}>

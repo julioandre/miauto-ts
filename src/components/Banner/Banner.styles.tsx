@@ -8,5 +8,8 @@ export const useStyles = makeStyles({
         flexDirection:'column'
         
     },
+    divider:{
+        height:'100%',
+    }
     
 })
