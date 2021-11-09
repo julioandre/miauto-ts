@@ -1,4 +1,4 @@
-import { Box, Button,  createTheme, CssBaseline, Divider, FormControl, FormLabel, Grid, InputAdornment, Link, Paper, TextField, ThemeProvider, Typography } from '@mui/material';
+import { Box, Button,  Container,  createTheme, CssBaseline, Divider, FormControl, FormLabel, Grid, InputAdornment, Link, Paper, TextField, ThemeProvider, Typography } from '@mui/material';
 import React, { useState } from 'react'
 import {useStyles} from './HomePageJumbotron.styles';
 import RoomIcon from '@mui/icons-material/Room';
@@ -36,12 +36,12 @@ const HomePageJumbotron:React.FC=()=>{
             <NavBar/>
             <Grid container>
                 <Grid xs={12} md={6}>
-                    <div className={classes.div}> 
+                    <Container className={classes.div} sx={{ mx:2 }}> 
                     <Typography sx={{ my:0.2}} align='center' variant='h4'>Car Repair & Servicing Made Easy</Typography>
                     <Typography sx={{ my:0.2 }} align='center' variant='h5'>Unbeatable Prices, mechanics you can trust, 2 hour service at any location in Quito</Typography>
                     <Typography sx={{ my:0.2 }} align='center' variant='h5'>10% off on first repair or service</Typography>
                     <Typography sx={{ my:0.2 }} align='center' variant='h6'>Various Garages all over Ecuador</Typography>
-                    </div>
+                    </Container>
 
                 </Grid>
                 <Grid xs={12} md={6}>

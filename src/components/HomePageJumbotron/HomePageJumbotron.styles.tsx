@@ -21,7 +21,7 @@ export const useStyles = makeStyles((theme)=>({
     div:{
         justifyContent:'center',
         width:'90%',
-        marginLeft:'5%',
+        marginTop:'10%',
         
     },
     input: {
