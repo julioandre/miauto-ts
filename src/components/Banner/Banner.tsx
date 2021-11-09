@@ -1,4 +1,4 @@
-import { Box, Container, Divider, Grid, Paper, Typography } from '@mui/material';
+import {  Divider, Grid, Paper, Typography } from '@mui/material';
 import React from 'react';
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 import ReceiptLongIcon from '@mui/icons-material/ReceiptLong';
@@ -25,7 +25,7 @@ const Banner:React.FC=()=>{
                  {icon_list.map(icon=>{
                      return <><Grid my='1%' item xs={4} lg={2} >
                          {icon.tag}
-                         <Typography mx='15%' variant="subtitle1"> {icon.text}</Typography>
+                         <Typography align="center" variant="subtitle1"> {icon.text}</Typography>
                          <Divider orientation="vertical" className={classes.divider} ></Divider> 
                      </Grid>
                      
