@@ -1,7 +1,7 @@
 import React from 'react'
 import SearchBar from '../SearchBar';
 import NavBar from '../NavBar';
-import { CssBaseline, ThemeProvider, createTheme, Paper, Grid} from '@mui/material';
+import { CssBaseline, ThemeProvider, createTheme, Grid} from '@mui/material';
 import { arrayIndexingWithLength } from '../../utils/arrayIndexingWithLength';
 import Cards from '../Cards';
 import { useStyles } from '../GaragePage/GaragePage.styles';

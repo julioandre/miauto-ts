@@ -2,7 +2,7 @@ import { alpha, Paper, styled, Typography } from '@mui/material';
 import React from 'react'
 
 import { InputBase } from '@mui/material';
-import { useStyles } from './SearchBar.styles';
+
 import SearchIcon from '@mui/icons-material/Search';
 
 
