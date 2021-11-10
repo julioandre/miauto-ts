@@ -1,4 +1,4 @@
-import { Avatar, Badge, Container, createTheme, CssBaseline, Grid, IconButton, InputAdornment, MenuItem, Paper, ThemeProvider, Typography } from '@mui/material';
+import { Avatar, Badge, Container, createTheme, CssBaseline, Grid, IconButton, InputAdornment, MenuItem,  ThemeProvider, Typography } from '@mui/material';
 import profile from '../../../../assets/profile.jpeg'
 import React from 'react'
 import Select, { SelectChangeEvent } from '@mui/material/Select';
@@ -60,8 +60,8 @@ const MainPageHeader:React.FC=()=>{
                     
                     </Grid>
                 <Container sx={{ marginLeft:'2%',marginTop:'15%' }}>
-                <Typography variant="h5">Welcome Back Eddie</Typography>
-                <Typography variant="h5" color="#143656">Looking for one of you cars?</Typography>
+                <Typography variant="h5" color="gray">Welcome Back Eddie</Typography>
+                <Typography variant="h5" color="#143656">Looking for a garage?</Typography>
                 </Container>
             </ThemeProvider>       
         </>

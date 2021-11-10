@@ -5,6 +5,7 @@ import { useStyles } from './MainPage.styles';
 import Jumbotron from '../Jumbotron';
 import logo from '../../assets/logo.png';
 import MainPageHeader from '../mobile/components/MainPageHeader';
+import MainPageBody from '../mobile/components/MainPageBody';
 
 const theme = createTheme({
     palette:{
@@ -13,7 +14,7 @@ const theme = createTheme({
       },
       background:{
         default:'white',
-        paper:'#46d0d9'
+        paper:'#D3DBE2',
       },
       secondary:{
         main:'#143656'
@@ -33,6 +34,7 @@ const MainPage:React.FC=()=>{
         <ThemeProvider theme={theme}>
             <CssBaseline/>
            <MainPageHeader/>
+           <MainPageBody/>
           
         </ThemeProvider>
        

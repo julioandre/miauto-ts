@@ -17,7 +17,7 @@ const Search = styled('div')(({ theme }) => ({
       backgroundColor: alpha(theme.palette.common.white, 0.25),
     },
     margin:'1% 20% 5% 20%',
-    width: '55%',
+    width: '65%',
    
     
   }));
@@ -39,11 +39,11 @@ const Search = styled('div')(({ theme }) => ({
       // vertical padding + font size from searchIcon
       paddingLeft: `calc(1em + ${theme.spacing(4)})`,
       transition: theme.transitions.create('width'),
-      width:'100%',
+      width:'80%',
       [theme.breakpoints.up('sm')]: {
-        width: '100%',
+        width: '80%',
         '&:focus': {
-          width: '100%',
+          width: '80%',
         },
       },
     },
@@ -52,20 +52,22 @@ const Search = styled('div')(({ theme }) => ({
     borderColor:'black'
     
   }));
-  
-const SearchBar:React.FC=()=>{
+  type Props={
+    searchtext:string
+  }
+const SearchBar:React.FC<Props>=({searchtext})=>{
     
     return(
         
-      <Paper variant="outlined" sx={{ borderRadius:' 0 0 15px 15px' }} square={false} elevation={6}>
-        <Typography variant='h4' align='center' marginTop='2%'>Garages</Typography><Search>
+      
+        <><Search >
         <SearchIconWrapper>
           <SearchIcon />
         </SearchIconWrapper>
         <StyledInputBase
-          placeholder="Search…"
+          placeholder={searchtext}
           inputProps={{ 'aria-label': 'search' }} />
-      </Search></Paper>
+      </Search></>
 
         
     )
