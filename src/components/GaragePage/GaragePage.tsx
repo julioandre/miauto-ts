@@ -28,7 +28,7 @@ const GaragePage:React.FC=()=>{
         <ThemeProvider theme={theme}>
             <CssBaseline/>
             <NavBar/>
-            <SearchBar/>
+            {/* <SearchBar/> */}
            
               <Grid container marginLeft='5%'>
                   {arrayIndexingWithLength(6).map((v)=>(
