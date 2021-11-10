@@ -30,11 +30,11 @@ const RegisterPageHeader:React.FC=()=>{
         <>
         <ThemeProvider theme={theme}>
             <Paper>
-            <Container sx={{display:"flex" ,alignItems:"center", justifyContent:'center',paddingY:2}}>
+            <Container sx={{display:"flex" ,alignItems:"center", justifyContent:'center',paddingY:3}}>
                 <img src={logo} alt="Miauto" className={classes.img} /> 
             </Container>
             <Typography my="1%" variant="h4" align="center"> Welcome</Typography>
-            <Typography my="2%" paddingBottom="2%" variant="subtitle1" align="center" color="gray"> Signup to enjoy MiAuto</Typography>
+            <Typography  paddingBottom="2%" variant="subtitle1" align="center" color="gray"> Signup to enjoy MiAuto</Typography>
             </Paper>
         </ThemeProvider>
         

@@ -3,13 +3,14 @@ import  { Theme } from '@mui/material';
 
 export const useStyles = makeStyles((theme:Theme)=>createStyles({
     paper:{
-        marginTop:'2.5%',
         justifyContent:'center',
         alignItems:'center',
+        height:'75vh',
+        marginTop:'0'
         
     },
-    img:{
-        height: '50px',
-        width: '50px',
-    },
+    container:{
+        
+    }
+   
 }))

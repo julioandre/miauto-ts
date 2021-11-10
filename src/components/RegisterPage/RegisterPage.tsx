@@ -2,6 +2,7 @@ import { ThemeProvider, createTheme, CssBaseline, Grid, IconButton, Typography }
 import React from 'react'
 import { useStyles } from './RegisterPage.styles';
 import RegisterPageHeader from '../mobile/components/RegisterPageHeader';
+import RegisterPageForm from '../mobile/components/RegisterPageForm';
 
 
 const theme = createTheme({
@@ -26,6 +27,7 @@ const RegisterPage:React.FC=()=>{
             <ThemeProvider theme={theme}>
               <CssBaseline/>
                <RegisterPageHeader/>
+               <RegisterPageForm/>
             </ThemeProvider>
         </>
     )
