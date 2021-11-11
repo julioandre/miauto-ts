@@ -83,9 +83,9 @@ interface ExpandMoreProps extends IconButtonProps {
     </CardActions>
     <Collapse in={expanded} timeout="auto" unmountOnExit>
       <CardContent>
-        <Typography variant="h5"> Car Number: MY6712</Typography>
-        <Typography variant="h5"> Mileage: 124366KM</Typography>
-        <Typography variant="h5"> Last Visit: 12/10/2021</Typography>
+        <Typography variant="h6"> Car Number: MY6712</Typography>
+        <Typography variant="h6"> Mileage: 124366KM</Typography>
+        <Typography variant="h6"> Last Visit: 12/10/2021</Typography>
             
       </CardContent>
     </Collapse>

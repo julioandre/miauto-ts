@@ -41,14 +41,14 @@ const GaragesBody:React.FC=()=>{
             <Grid container height='100%'>
                 <Grid item xs={3}>
                     <Box  className={classes.selectedbox}>
-                        <IconButton href='/mainpage'>
+                        <IconButton href='/garages'>
                         <DirectionsCarIcon fontSize="large"/>
                         </IconButton>
                     </Box>
                 </Grid>
                 <Grid item xs={3}>
                     <Box className={classes.box}>
-                        <IconButton href='/garages'>
+                        <IconButton href='/mainpage'>
                         <HomeIcon fontSize="large"/>
                         
                         </IconButton>
