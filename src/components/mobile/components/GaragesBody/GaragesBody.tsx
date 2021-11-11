@@ -8,6 +8,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import { arrayIndexingWithLength } from '../../../../utils/arrayIndexingWithLength';
+import CardComponent from './CardComponent'
 
 
 
@@ -18,7 +19,7 @@ const theme = createTheme({
       },
       background:{
         default:'white',
-        paper:'#143656'
+        paper:'#D3DBE2'
       },
       secondary:{
         main:'#143656'
@@ -67,7 +68,7 @@ const GaragesBody:React.FC=()=>{
                 </Grid>
             </Grid>
             {arrayIndexingWithLength(3).map((v)=>(
-                     <Card/>
+                     <CardComponent/>
                   ))}
             
                 
