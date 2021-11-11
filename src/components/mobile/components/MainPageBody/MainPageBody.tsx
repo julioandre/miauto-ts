@@ -1,4 +1,4 @@
-import { Box, Card, Container, createTheme, CssBaseline, Grid,  Paper } from '@mui/material';
+import { Box, Card, Container, createTheme, CssBaseline, Grid,  IconButton,  Paper } from '@mui/material';
 import React from 'react'
 import { useStyles } from './MainPageBody.styles';
 import SearchBar from '../../../SearchBar';
@@ -9,7 +9,7 @@ import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import CardComponent from './CardComponent';
 import { arrayIndexingWithLength } from '../../../../utils/arrayIndexingWithLength';
-import { IconButton } from '@material-ui/core';
+
 
 
 const theme = createTheme({

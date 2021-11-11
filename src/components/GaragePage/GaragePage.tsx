@@ -23,6 +23,7 @@ const theme = createTheme({
 
 const GaragePage:React.FC=()=>{
   const classes = useStyles();
+  const searchtext = "Looking for your car";
     return(
         <>
         <ThemeProvider theme={theme}>

@@ -1,4 +1,4 @@
-import { Box, Card, Container, createTheme, CssBaseline, Grid,  Paper } from '@mui/material';
+import { Box, Card, Container, createTheme, CssBaseline, Grid,  IconButton,  Paper } from '@mui/material';
 import React from 'react'
 import { useStyles } from './GaragesBody.styles';
 import SearchBar from '../../../SearchBar';
@@ -8,7 +8,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import { arrayIndexingWithLength } from '../../../../utils/arrayIndexingWithLength';
-import { IconButton } from '@material-ui/core';
+
 
 
 const theme = createTheme({
