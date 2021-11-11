@@ -92,7 +92,7 @@ const RegisterPageForm:React.FC=()=>{
                     <TextField sx={{my:2}} name="password" onBlur={handleInputValue} onChange={handleInputValue} label="Password" fullWidth autoComplete="none" {...(errors["password"] && { error: true, helperText: errors["password"]  })}/>   
                     <TextField sx={{my:2}} name="repeatpassword" onBlur={handleInputValue} onChange={handleInputValue} label="Repeat Password" fullWidth  autoComplete="none" {...(errors["repeatpassword"] && { error: true, helperText: errors["repeatpassword"] })}/> 
                     <TextField sx={{my:2}} name="number" onBlur={handleInputValue} onChange={handleInputValue} label="Number" fullWidth  autoComplete="none" {...(errors["number"] && { error: true, helperText: errors["number"] })}/> 
-                    <Button sx={{my:2}} variant="contained" type="submit" color="secondary" fullWidth >Register</Button>   
+                    <Button sx={{my:2}} href='loginpage' variant="contained" type="submit" color="secondary" fullWidth >Register</Button>   
     
                 </form>
               </Container>
