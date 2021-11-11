@@ -1,5 +1,5 @@
+import React from 'react';
 import { Box, Card, Container, createTheme, CssBaseline, Grid,  Paper, ThemeProvider } from '@mui/material';
-import React from 'react'
 import { useStyles } from './GaragesBody.styles';
 import SearchBar from '../../../SearchBar';
 
