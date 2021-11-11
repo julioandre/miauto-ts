@@ -1,13 +1,12 @@
-import { Box, Card, Container, createTheme, CssBaseline, Grid,  Paper } from '@mui/material';
+import { Box, Card, Container, createTheme, CssBaseline, Grid,  Paper, ThemeProvider } from '@mui/material';
 import React from 'react'
-import { useStyles } from './MainPageBody.styles';
+import { useStyles } from './GaragesBody.styles';
 import SearchBar from '../../../SearchBar';
-import { ThemeProvider } from '@mui/private-theming';
+
 import AppSettingsAltIcon from '@mui/icons-material/AppSettingsAlt';
 import HomeIcon from '@mui/icons-material/Home';
 import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
-import CardComponent from './CardComponent';
 import { arrayIndexingWithLength } from '../../../../utils/arrayIndexingWithLength';
 import { IconButton } from '@material-ui/core';
 
@@ -27,29 +26,30 @@ const theme = createTheme({
     }
   })
 
-const MainPageBody:React.FC=()=>{
+const GaragesBody:React.FC=()=>{
     const classes = useStyles();
-    const searchtext = "Looking for a Garage"
+    const searchtext = "Looking for you car"
     return(
         <>
         <ThemeProvider theme={theme}>
         <CssBaseline/>
         <Paper >
             <Container sx={{ paddingTop:'10%'}}>
-                
+                <SearchBar searchtext={searchtext}/>
             </Container>
             <Grid container height='100%'>
                 <Grid item xs={3}>
                     <Box  className={classes.selectedbox}>
                         <IconButton href='/mainpage'>
-                        <HomeIcon fontSize="large"/>
+                        <DirectionsCarIcon fontSize="large"/>
                         </IconButton>
                     </Box>
                 </Grid>
                 <Grid item xs={3}>
                     <Box className={classes.box}>
                         <IconButton href='/garages'>
-                        <DirectionsCarIcon fontSize="large"/>
+                        <HomeIcon fontSize="large"/>
+                        
                         </IconButton>
                     </Box>
                 </Grid>
@@ -67,7 +67,7 @@ const MainPageBody:React.FC=()=>{
                 </Grid>
             </Grid>
             {arrayIndexingWithLength(3).map((v)=>(
-                     <CardComponent/>
+                     <Card/>
                   ))}
             
                 
@@ -79,4 +79,4 @@ const MainPageBody:React.FC=()=>{
     )
 }
 
-export default MainPageBody;
+export default GaragesBody;
