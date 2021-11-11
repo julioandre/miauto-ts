@@ -5,7 +5,9 @@
   "dependencies": {
     "@emotion/react": "^11.5.0",
     "@emotion/styled": "^11.3.0",
+    "@material-ui/lab": "^4.0.0-alpha.60",
     "@mui/icons-material": "^5.0.4",
+    "@mui/lab": "^5.0.0-alpha.54",
     "@mui/material": "^5.0.4",
     "@mui/styles": "^5.0.1",
     "@testing-library/jest-dom": "^5.11.4",
@@ -35,7 +37,8 @@
   "eslintConfig": {
     "extends": [
       "react-app",
-      "react-app/jest"
+      "react-app/jest",
+      "plugin:react-hooks/recommended"
     ]
   },
   "browserslist": {
@@ -51,6 +54,7 @@
     ]
   },
   "devDependencies": {
-    "@types/react-router-dom": "^5.3.1"
+    "@types/react-router-dom": "^5.3.1",
+    "eslint-plugin-react-hooks": "^4.3.0"
   }
 }
