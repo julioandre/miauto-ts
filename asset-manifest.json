@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/miauto-ts/static/css/main.6dea0f05.chunk.css",
+    "main.js": "/miauto-ts/static/js/main.a8f4886f.chunk.js",
+    "main.js.map": "/miauto-ts/static/js/main.a8f4886f.chunk.js.map",
+    "runtime-main.js": "/miauto-ts/static/js/runtime-main.c8d591bc.js",
+    "runtime-main.js.map": "/miauto-ts/static/js/runtime-main.c8d591bc.js.map",
+    "static/js/2.c94bcc3b.chunk.js": "/miauto-ts/static/js/2.c94bcc3b.chunk.js",
+    "static/js/2.c94bcc3b.chunk.js.map": "/miauto-ts/static/js/2.c94bcc3b.chunk.js.map",
+    "static/js/3.6108913e.chunk.js": "/miauto-ts/static/js/3.6108913e.chunk.js",
+    "static/js/3.6108913e.chunk.js.map": "/miauto-ts/static/js/3.6108913e.chunk.js.map",
+    "index.html": "/miauto-ts/index.html",
+    "static/css/main.6dea0f05.chunk.css.map": "/miauto-ts/static/css/main.6dea0f05.chunk.css.map",
+    "static/js/2.c94bcc3b.chunk.js.LICENSE.txt": "/miauto-ts/static/js/2.c94bcc3b.chunk.js.LICENSE.txt",
+    "static/media/car.15a5906c.jpeg": "/miauto-ts/static/media/car.15a5906c.jpeg",
+    "static/media/logo.ee37f778.png": "/miauto-ts/static/media/logo.ee37f778.png",
+    "static/media/mechanic.e015b3dc.jpeg": "/miauto-ts/static/media/mechanic.e015b3dc.jpeg",
+    "static/media/profile.0847a8d5.jpeg": "/miauto-ts/static/media/profile.0847a8d5.jpeg",
+    "static/media/store.9b967fcd.jpeg": "/miauto-ts/static/media/store.9b967fcd.jpeg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c8d591bc.js",
+    "static/js/2.c94bcc3b.chunk.js",
+    "static/css/main.6dea0f05.chunk.css",
+    "static/js/main.a8f4886f.chunk.js"
+  ]
+}
