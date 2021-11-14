@@ -84,7 +84,7 @@ const LoginPageForm:React.FC=()=>{
               <form onSubmit={handleFormSubmit}>
                     <TextField sx={{my:2}} name="email" onBlur={handleInputValue} onChange={handleInputValue} label="Email" fullWidth autoComplete="none" {...(errors["email"] && { error: true, helperText: errors["email"] })}/>   
                     <TextField sx={{my:2}} name="password" onBlur={handleInputValue} onChange={handleInputValue} label="Password" fullWidth autoComplete="none" {...(errors["password"] && { error: true, helperText: errors["password"]  })}/>   
-                    <Button sx={{my:2}} variant="contained" type="submit" color="secondary" fullWidth >Login</Button>   
+                    <Button sx={{my:2}} variant="contained" type="submit" color="secondary" fullWidth href="mainpage">Login</Button>   
                 </form>
               </Container>
             </Paper>

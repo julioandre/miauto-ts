@@ -15,7 +15,7 @@ interface ExpandMoreProps extends IconButtonProps {
     const { expand, ...other } = props;
     return <IconButton {...other} />;
   })(({ theme, expand }) => ({
-    transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
+   
     marginLeft: 'auto',
     transition: theme.transitions.create('transform', {
       duration: theme.transitions.duration.shortest,
@@ -82,7 +82,7 @@ interface ExpandMoreProps extends IconButtonProps {
         aria-expanded={expanded}
         aria-label="show more"
       >
-        <ExpandMoreIcon />
+        <Button variant="outlined" color="success">Book Appointment</Button>
       </ExpandMore>
     </CardActions>
     <Collapse in={expanded} timeout="auto" unmountOnExit>
