@@ -1,6 +1,6 @@
 import { Alert,  Button, Card, CardActions, CardContent, CardHeader, CardMedia, Collapse, IconButton, IconButtonProps, Snackbar, styled, TextField, Typography } from '@mui/material';
 import React, { useState } from 'react';
-import store from '../../../../../assets/store.jpeg'
+import car from '../../../../../assets/car.jpeg'
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
@@ -15,7 +15,7 @@ interface ExpandMoreProps extends IconButtonProps {
     const { expand, ...other } = props;
     return <IconButton {...other} />;
   })(({ theme, expand }) => ({
-   
+    transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
     marginLeft: 'auto',
     transition: theme.transitions.create('transform', {
       duration: theme.transitions.duration.shortest,
@@ -50,26 +50,22 @@ interface ExpandMoreProps extends IconButtonProps {
         }
       return(
           <>
-        <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
-            <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
-                Booking Succeful
-            </Alert>
-      </Snackbar>
+      
     
     <Card sx={{ maxWidth: 345,m:3 ,backgroundColor:'white',borderRadius:'5px'}}>
     <CardHeader
-      subheader="Quito,Ecuador"
+      subheader="Ford Mustang"
       
     />
     <CardMedia
       component="img"
       height="194"
-      image={store}
-      alt="store"
+      image={car}
+      alt="car"
     />
     <CardContent>
       <Typography variant="h5" color="text.secondary">
-         Tito's Garage
+         Car Number: MY6712
       </Typography>
     </CardContent>
     <CardActions disableSpacing>
@@ -82,28 +78,15 @@ interface ExpandMoreProps extends IconButtonProps {
         aria-expanded={expanded}
         aria-label="show more"
       >
-        <Button variant="outlined" color="success">Book Appointment</Button>
+        <ExpandMoreIcon />
       </ExpandMore>
     </CardActions>
     <Collapse in={expanded} timeout="auto" unmountOnExit>
       <CardContent>
-      <form onSubmit={handleFormSubmit}>
-            <TextField sx={{my:2}} name="postcode"  onChange={(e)=> setPostcode(e.target.value)}label="postcode" fullWidth autoComplete="none" />   
-            <TextField sx={{my:2}} name="address" onChange={(e)=> setHouseNumber(e.target.value)}label="housenumber" fullWidth autoComplete="none" /> 
-            <TextField
-                id="date"
-                label="Select Date"
-                type="date"
-                onChange={(e)=> setDateValue(e.target.value)}
-                defaultValue="2017-05-24"
-                sx={{ width: 220 }}
-                InputLabelProps={{
-                shrink: true,
-                }}
-            />
+        <Typography variant="h6"> Car Number: MY6712</Typography>
+        <Typography variant="h6"> Mileage: 124366KM</Typography>
+        <Typography variant="h6"> Last Visit: 12/10/2021</Typography>
             
-            <Button sx={{my:2}} variant="contained" type="submit" color="secondary" fullWidth >Schedule Appointment</Button>   
-      </form>
       </CardContent>
     </Collapse>
   </Card></>

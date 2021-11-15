@@ -1,14 +1,18 @@
-import React from 'react';
-import { Box, Card, Container, createTheme, CssBaseline, Grid,  Paper, ThemeProvider } from '@mui/material';
+
+import { Box, Card, Container, createTheme, CssBaseline, Grid,  IconButton,  Paper } from '@mui/material';
+import React from 'react'
 import { useStyles } from './GaragesBody.styles';
 import SearchBar from '../../../SearchBar';
+import { ThemeProvider } from '@mui/private-theming';
 
 import AppSettingsAltIcon from '@mui/icons-material/AppSettingsAlt';
 import HomeIcon from '@mui/icons-material/Home';
 import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import { arrayIndexingWithLength } from '../../../../utils/arrayIndexingWithLength';
-import { IconButton } from '@material-ui/core';
+
+import CardComponent from './CardComponent'
+
 
 
 const theme = createTheme({
@@ -18,7 +22,9 @@ const theme = createTheme({
       },
       background:{
         default:'white',
-        paper:'#143656'
+
+        paper:'#D3DBE2'
+
       },
       secondary:{
         main:'#143656'
@@ -40,14 +46,18 @@ const GaragesBody:React.FC=()=>{
             <Grid container height='100%'>
                 <Grid item xs={3}>
                     <Box  className={classes.selectedbox}>
-                        <IconButton href='/mainpage'>
+
+                        <IconButton href='/garages'>
+
                         <DirectionsCarIcon fontSize="large"/>
                         </IconButton>
                     </Box>
                 </Grid>
                 <Grid item xs={3}>
                     <Box className={classes.box}>
-                        <IconButton href='/garages'>
+
+                        <IconButton href='/mainpage'>
+
                         <HomeIcon fontSize="large"/>
                         
                         </IconButton>
@@ -67,7 +77,9 @@ const GaragesBody:React.FC=()=>{
                 </Grid>
             </Grid>
             {arrayIndexingWithLength(3).map((v)=>(
-                     <Card/>
+
+                     <CardComponent/>
+
                   ))}
             
                 

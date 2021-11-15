@@ -5,7 +5,7 @@ import Select, { SelectChangeEvent } from '@mui/material/Select';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import SettingsIcon from '@mui/icons-material/Settings';
-import { useStyles } from './MainPageHeader.styles';
+import { useStyles } from './GaragesHeader.styles'
 
 
  const theme= createTheme({
@@ -16,13 +16,13 @@ import { useStyles } from './MainPageHeader.styles';
       },
  })
 
-const MainPageHeader:React.FC=()=>{
+const GaragesHeader:React.FC=()=>{
     const [location, setLocation] = React.useState('Quito');
 
     const handleChange = (event: SelectChangeEvent) => {
       setLocation(event.target.value);
     };
-    const classes = useStyles();
+    const classes = useStyles()
     return(
         <>
             <ThemeProvider theme={theme}>
@@ -53,7 +53,6 @@ const MainPageHeader:React.FC=()=>{
                         </Select>
                         </FormControl>
                         </Box>
-                       
                         <IconButton sx={{marginLeft:'15%'}} aria-label="notifications" color="inherit">
                         <Badge badgeContent={4} color='secondary'> 
                             <NotificationsIcon/>
@@ -66,10 +65,10 @@ const MainPageHeader:React.FC=()=>{
                     </Grid>
                 <Container sx={{ marginLeft:'2%',marginTop:'15%' }}>
                 <Typography variant="h5" color="gray">Welcome Back Eddie</Typography>
-                <Typography variant="h5" color="#143656">Looking for a garage?</Typography>
+                <Typography variant="h5" color="#143656">Looking for one of you cars?</Typography>
                 </Container>
             </ThemeProvider>       
         </>
     )
 }
-export default MainPageHeader;
+export default GaragesHeader;

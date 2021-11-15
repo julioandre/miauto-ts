@@ -1,5 +1,5 @@
 import { alpha, Paper, styled, Typography } from '@mui/material';
-import React from 'react'
+import React, { useState } from 'react'
 
 import { InputBase } from '@mui/material';
 
@@ -56,7 +56,7 @@ const Search = styled('div')(({ theme }) => ({
     searchtext:string
   }
 const SearchBar:React.FC<Props>=({searchtext})=>{
-    
+    const [searchTerm,setSearchTerm] = useState(' ')
     return(
         
       
@@ -65,6 +65,7 @@ const SearchBar:React.FC<Props>=({searchtext})=>{
           <SearchIcon />
         </SearchIconWrapper>
         <StyledInputBase
+          onChange={(e)=> setSearchTerm(e.target.value)}
           placeholder={searchtext}
           inputProps={{ 'aria-label': 'search' }} />
       </Search></>

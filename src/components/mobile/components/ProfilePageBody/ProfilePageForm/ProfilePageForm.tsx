@@ -1,7 +1,7 @@
-import { Button, Container, createTheme, CssBaseline, Paper, TextField, ThemeProvider } from '@mui/material';
+import { Button, Container, createTheme, CssBaseline, FormLabel, Paper, TextField, ThemeProvider } from '@mui/material';
 
 import React, { useState } from 'react';
-import {useStyles} from './LoginPageForm.styles'
+import {useStyles} from './ProfilePageForm.styles'
 
 const theme = createTheme({
  
@@ -16,7 +16,7 @@ const theme = createTheme({
   
   })
   
-const LoginPageForm:React.FC=()=>{
+const ProfilePageForm:React.FC=()=>{
     const classes= useStyles()
     const [errors, setErrors] = useState({} as any);
     const initialFormValues = {
@@ -79,20 +79,23 @@ const LoginPageForm:React.FC=()=>{
         <>
         <ThemeProvider theme={theme}>
             <CssBaseline/>
-            <Paper className={classes.paper}>
-            <Container >
+            
+            <Container sx={{ marginTop:"10%",paddingBottom:"23%" }} >
               <form onSubmit={handleFormSubmit}>
+                  <FormLabel>Profile Information</FormLabel>
+                    <TextField sx={{my:2}} name="name" defaultValue="Eddie Bremmer" onBlur={handleInputValue} onChange={handleInputValue} label="Name" fullWidth autoComplete="none" />   
+                    <TextField sx={{my:2}} name="address" onBlur={handleInputValue} onChange={handleInputValue} label="Address" fullWidth autoComplete="none" />
                     <TextField sx={{my:2}} name="email" onBlur={handleInputValue} onChange={handleInputValue} label="Email" fullWidth autoComplete="none" {...(errors["email"] && { error: true, helperText: errors["email"] })}/>   
-                    <TextField sx={{my:2}} name="password" onBlur={handleInputValue} onChange={handleInputValue} label="Password" fullWidth autoComplete="none" {...(errors["password"] && { error: true, helperText: errors["password"]  })}/>   
-                    <Button sx={{my:2}} variant="contained" type="submit" color="secondary" fullWidth href="mainpage">Login</Button>   
+                    <TextField sx={{my:2}} name="phone" onBlur={handleInputValue} onChange={handleInputValue} label="Phone" fullWidth autoComplete="none"/>    
+                    <Button sx={{my:2}} variant="contained" type="submit" color="secondary" fullWidth href="mainpage">Update</Button>   
                 </form>
               </Container>
-            </Paper>
+        
         </ThemeProvider>
         </>
     )
 }
-export default LoginPageForm
+export default ProfilePageForm
 
 function postContactForm(values: any) {
     throw new Error('Function not implemented.');

@@ -9,7 +9,7 @@ const HomepageRegister:React.FC=()=>{
             <Typography sx={{ my:1}} align="center" variant='h4'>Want to reap customer benefits?</Typography>
             <Typography sx={{ my:1}} align="center" variant='subtitle1'>Get deals, buy car parts from our shop etc.</Typography>
             <Container  sx={{display:"flex" ,alignItems:"center", justifyContent:'center', marginTop:1,paddingBottom:2}} >
-                <Button variant="contained" size="large" color="secondary" fullWidth> Sign Up</Button>
+                <Button variant="contained" size="large" color="secondary" fullWidth href="register"> Sign Up</Button>
 
             </Container>
         </Paper>

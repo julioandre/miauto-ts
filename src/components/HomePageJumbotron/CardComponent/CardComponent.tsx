@@ -1,6 +1,6 @@
 import { Alert,  Button, Card, CardActions, CardContent, CardHeader, CardMedia, Collapse, IconButton, IconButtonProps, Snackbar, styled, TextField, Typography } from '@mui/material';
 import React, { useState } from 'react';
-import store from '../../../../../assets/store.jpeg'
+import store from '../../../assets/store.jpeg'
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
@@ -15,14 +15,16 @@ interface ExpandMoreProps extends IconButtonProps {
     const { expand, ...other } = props;
     return <IconButton {...other} />;
   })(({ theme, expand }) => ({
-   
+    transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
     marginLeft: 'auto',
     transition: theme.transitions.create('transform', {
       duration: theme.transitions.duration.shortest,
     }),
   }));
-
-  const CardComponent:React.FC=()=>{
+type Props={
+  handleClose1:any
+}
+  const CardComponent:React.FC<Props>=({ handleClose1 })=>{
     const [open, setOpen] = React.useState(false);
     const handleClose = (event?: React.SyntheticEvent, reason?: string) => {
         if (reason === 'clickaway') {
@@ -39,6 +41,7 @@ interface ExpandMoreProps extends IconButtonProps {
     const handleExpandClick = () => {
       setExpanded(!expanded);
     };
+    
    
     const handleFormSubmit = async (e: any) => {
         // this function will be triggered by the submit event
@@ -52,7 +55,7 @@ interface ExpandMoreProps extends IconButtonProps {
           <>
         <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
             <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
-                Booking Succeful
+                Booking Successful
             </Alert>
       </Snackbar>
     
@@ -82,27 +85,14 @@ interface ExpandMoreProps extends IconButtonProps {
         aria-expanded={expanded}
         aria-label="show more"
       >
-        <Button variant="outlined" color="success">Book Appointment</Button>
+        <ExpandMoreIcon />
       </ExpandMore>
     </CardActions>
     <Collapse in={expanded} timeout="auto" unmountOnExit>
       <CardContent>
       <form onSubmit={handleFormSubmit}>
-            <TextField sx={{my:2}} name="postcode"  onChange={(e)=> setPostcode(e.target.value)}label="postcode" fullWidth autoComplete="none" />   
-            <TextField sx={{my:2}} name="address" onChange={(e)=> setHouseNumber(e.target.value)}label="housenumber" fullWidth autoComplete="none" /> 
-            <TextField
-                id="date"
-                label="Select Date"
-                type="date"
-                onChange={(e)=> setDateValue(e.target.value)}
-                defaultValue="2017-05-24"
-                sx={{ width: 220 }}
-                InputLabelProps={{
-                shrink: true,
-                }}
-            />
             
-            <Button sx={{my:2}} variant="contained" type="submit" color="secondary" fullWidth >Schedule Appointment</Button>   
+            <Button sx={{my:2}} variant="contained" type="submit" color="secondary" fullWidth onClick={handleClose1}>Send Repair Request</Button>   
       </form>
       </CardContent>
     </Collapse>
