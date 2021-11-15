@@ -8,6 +8,8 @@ import { useStyles } from '../GaragePage/GaragePage.styles';
 import GaragesHeader from '../mobile/components/GaragesHeader';
 import GaragesBody from '../mobile/components/GaragesBody';
 
+
+
 const theme = createTheme({
   palette:{
     primary:{
@@ -30,8 +32,12 @@ const GaragePage:React.FC=()=>{
         <>
         <ThemeProvider theme={theme}>
             <CssBaseline/>
+
            <GaragesHeader/>
            <GaragesBody/>
+
+
+
             
             
         </ThemeProvider>
