@@ -5,8 +5,10 @@ import { CssBaseline, ThemeProvider, createTheme, Grid} from '@mui/material';
 import { arrayIndexingWithLength } from '../../utils/arrayIndexingWithLength';
 import Cards from '../Cards';
 import { useStyles } from '../GaragePage/GaragePage.styles';
+
 import GaragesHeader from '../mobile/components/GaragesHeader';
 import GaragesBody from '../mobile/components/GaragesBody';
+
 
 const theme = createTheme({
   palette:{
@@ -30,8 +32,10 @@ const GaragePage:React.FC=()=>{
         <>
         <ThemeProvider theme={theme}>
             <CssBaseline/>
+
            <GaragesHeader/>
            <GaragesBody/>
+
             
             
         </ThemeProvider>
