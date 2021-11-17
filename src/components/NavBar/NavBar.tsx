@@ -1,9 +1,9 @@
-import { AppBar, Button, IconButton, Toolbar, Typography, useMediaQuery ,useTheme} from '@mui/material';
+import { AppBar, Button, IconButton, Toolbar, Typography} from '@mui/material';
 
 import React from 'react';
 import logo from '../../assets/logo.png';
 import { useStyles } from './NavBar.styles';
-import DrawerComponent from '../Drawer/Drawer';
+
 import { Box } from '@mui/system';
 
 
@@ -14,14 +14,14 @@ const NavBar:React.FC=()=>{
     //     setAuth(event.target.checked)
     // }
     const classes  = useStyles();
-    const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+    
+
     return(
         <Box sx = {{ flexGrow:1 }}>
-       <AppBar position ="static" style={{ background: 'transparent', boxShadow: 'none' }}>
+       <AppBar position ="static" style={{ background: '#46d0d9', boxShadow: 'none' }}>
            <Toolbar>
            
-           {isMobile?(<DrawerComponent/>):(
+           
             <>
             <Box  sx={{ flexGrow:1 }}> 
             <IconButton size="large" edge="start">
@@ -29,9 +29,8 @@ const NavBar:React.FC=()=>{
            </IconButton>
            </Box>
          
-           <Button href="/mainpage" color="inherit"> <Typography>Home</Typography></Button>
         
-           <Button href="/garages" color="inherit" ><Typography>Garage</Typography></Button>
+           <Button href="/login" color="inherit" ><Typography>Sign In</Typography></Button>
           
            <Button  href="/register" color="inherit" ><Typography>Register</Typography></Button>
  
@@ -42,7 +41,7 @@ const NavBar:React.FC=()=>{
              </IconButton> */}
              
              </>
-           )}
+           
           
            </Toolbar>
        </AppBar>

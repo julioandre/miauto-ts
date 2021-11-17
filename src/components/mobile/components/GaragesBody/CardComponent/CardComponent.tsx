@@ -1,4 +1,4 @@
-import { Alert,  Button, Card, CardActions, CardContent, CardHeader, CardMedia, Collapse, IconButton, IconButtonProps, Snackbar, styled, TextField, Typography } from '@mui/material';
+import {  Button, Card, CardActions, CardContent, CardHeader, CardMedia, Collapse, IconButton, IconButtonProps,  MenuItem,  styled, TextField, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import car from '../../../../../assets/car.jpeg'
 import FavoriteIcon from '@mui/icons-material/Favorite';
@@ -32,22 +32,18 @@ interface ExpandMoreProps extends IconButtonProps {
         setOpen(false);
       };
     const [expanded, setExpanded] = React.useState(false);
-    const [postcode, setPostcode]= useState(' ');
+    const [disabled, setDisabled]= useState(true);
     const [housenumber, setHouseNumber] = useState(' ');
     const [datevalue, setDateValue] = useState(' ');
 
     const handleExpandClick = () => {
       setExpanded(!expanded);
     };
+    const handleEdit=()=>{
+      setDisabled(!disabled)
+    }
    
-    const handleFormSubmit = async (e: any) => {
-        // this function will be triggered by the submit event
-        e.preventDefault();
-        if(postcode && housenumber && datevalue){
-            setOpen(true)
-        }
-       
-        }
+    
       return(
           <>
       
@@ -83,9 +79,35 @@ interface ExpandMoreProps extends IconButtonProps {
     </CardActions>
     <Collapse in={expanded} timeout="auto" unmountOnExit>
       <CardContent>
-        <Typography variant="h6"> Car Number: MY6712</Typography>
-        <Typography variant="h6"> Mileage: 124366KM</Typography>
-        <Typography variant="h6"> Last Visit: 12/10/2021</Typography>
+      <TextField
+          disabled={disabled}
+          id="outlined-disabled"
+          label="Car Number"
+          defaultValue="MY6712"
+          
+          
+        />
+       
+        <TextField
+          disabled={disabled}
+          id="outlined-disabled" 
+          label="Mileage"
+          defaultValue="6712"
+          sx={{ my:2 }}
+          
+          
+        ><MenuItem> KM </MenuItem> </TextField>
+         <TextField
+          disabled
+          id="outlined-disabled"
+          label="Last Visit"
+          defaultValue="12/10/2021"
+          
+        />
+        <Button sx={{my:2}} variant="contained" color="secondary" fullWidth onClick={handleEdit}>Edit Car Details</Button>
+        <Button sx={{my:2}} variant="contained" color="secondary" fullWidth onClick={handleEdit}>Save</Button>
+        
+
             
       </CardContent>
     </Collapse>

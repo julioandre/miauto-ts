@@ -2,7 +2,7 @@ import { Alert,  Button, Card, CardActions, CardContent, CardHeader, CardMedia, 
 import React, { useState } from 'react';
 import store from '../../../../../assets/store.jpeg'
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+
 
 
 
@@ -82,7 +82,7 @@ interface ExpandMoreProps extends IconButtonProps {
         aria-expanded={expanded}
         aria-label="show more"
       >
-        <Button variant="outlined" color="success">Book Appointment</Button>
+        <Button variant="outlined" color="secondary">Book Appointment</Button>
       </ExpandMore>
     </CardActions>
     <Collapse in={expanded} timeout="auto" unmountOnExit>

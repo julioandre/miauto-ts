@@ -1,6 +1,5 @@
 import React from "react";
-import { useStyles } from "./Homepage.styles";
-import {Typography, Button,Grid, createTheme, ThemeProvider, CssBaseline} from "@mui/material";
+import { createTheme, ThemeProvider, CssBaseline} from "@mui/material";
 import HomePageJumbotron from "../HomePageJumbotron";
 import Banner from "../Banner";
 import Footer from "../Footer";
@@ -22,7 +21,7 @@ const theme = createTheme({
   })
 
 const Homepage:React.FC=()=>{
-    const classes = useStyles();
+    
     return(
         <>
         <ThemeProvider theme={theme}>

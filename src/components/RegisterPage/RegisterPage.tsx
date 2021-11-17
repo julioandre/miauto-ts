@@ -1,6 +1,6 @@
-import { ThemeProvider, createTheme, CssBaseline, Grid, IconButton, Typography } from '@mui/material';
+import { ThemeProvider, createTheme, CssBaseline } from '@mui/material';
 import React from 'react'
-import { useStyles } from './RegisterPage.styles';
+
 import RegisterPageHeader from '../mobile/components/RegisterPageHeader';
 import RegisterPageForm from '../mobile/components/RegisterPageForm';
 
@@ -21,7 +21,7 @@ const theme = createTheme({
   })
 
 const RegisterPage:React.FC=()=>{
-  const classes = useStyles();
+  
     return(
         <>
             <ThemeProvider theme={theme}>

@@ -1,7 +1,7 @@
-import { Button, Container, createTheme, CssBaseline, FormLabel, Paper, TextField, ThemeProvider } from '@mui/material';
+import { Button, Container, createTheme, CssBaseline, FormLabel, TextField, ThemeProvider } from '@mui/material';
 
 import React, { useState } from 'react';
-import {useStyles} from './ProfilePageForm.styles'
+
 
 const theme = createTheme({
  
@@ -17,7 +17,7 @@ const theme = createTheme({
   })
   
 const ProfilePageForm:React.FC=()=>{
-    const classes= useStyles()
+    
     const [errors, setErrors] = useState({} as any);
     const initialFormValues = {
         email: "",
@@ -84,10 +84,11 @@ const ProfilePageForm:React.FC=()=>{
               <form onSubmit={handleFormSubmit}>
                   <FormLabel>Profile Information</FormLabel>
                     <TextField sx={{my:2}} name="name" defaultValue="Eddie Bremmer" onBlur={handleInputValue} onChange={handleInputValue} label="Name" fullWidth autoComplete="none" />   
-                    <TextField sx={{my:2}} name="address" onBlur={handleInputValue} onChange={handleInputValue} label="Address" fullWidth autoComplete="none" />
-                    <TextField sx={{my:2}} name="email" onBlur={handleInputValue} onChange={handleInputValue} label="Email" fullWidth autoComplete="none" {...(errors["email"] && { error: true, helperText: errors["email"] })}/>   
-                    <TextField sx={{my:2}} name="phone" onBlur={handleInputValue} onChange={handleInputValue} label="Phone" fullWidth autoComplete="none"/>    
-                    <Button sx={{my:2}} variant="contained" type="submit" color="secondary" fullWidth href="mainpage">Update</Button>   
+                    <TextField sx={{my:2}} name="address" defaultValue="Quito 65, 9087" onBlur={handleInputValue} onChange={handleInputValue} label="Address" fullWidth autoComplete="none" />
+                    <TextField sx={{my:2}} name="email" defaultValue="eddiebremmer@gmail.com" onBlur={handleInputValue} onChange={handleInputValue} label="Email" fullWidth autoComplete="none" {...(errors["email"] && { error: true, helperText: errors["email"] })}/>   
+                    <TextField sx={{my:2}} name="phone" defaultValue="0123547856"  onBlur={handleInputValue} onChange={handleInputValue} label="Phone" fullWidth autoComplete="none"/>    
+                    <Button sx={{my:2}} variant="contained" type="submit" color="secondary" fullWidth href="mainpage">Update</Button>
+                    <Button sx={{my:2}} variant="contained" type="submit" color="error" fullWidth href="login">Sign Out</Button>      
                 </form>
               </Container>
         

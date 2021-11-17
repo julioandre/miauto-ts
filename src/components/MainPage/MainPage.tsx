@@ -1,9 +1,6 @@
-import { Box, createTheme, CssBaseline, Grid,  Paper,  ThemeProvider, Typography } from '@mui/material';
+import {  createTheme, CssBaseline,  ThemeProvider } from '@mui/material';
 // import React, { useState } from 'react';
-import NavBar from '../NavBar';
-import { useStyles } from './MainPage.styles';
-import Jumbotron from '../Jumbotron';
-import logo from '../../assets/logo.png';
+
 import MainPageHeader from '../mobile/components/MainPageHeader';
 import MainPageBody from '../mobile/components/MainPageBody';
 

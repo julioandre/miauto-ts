@@ -1,4 +1,4 @@
-import { Box, Card, Container, createTheme, CssBaseline, Grid,  IconButton,  Paper } from '@mui/material';
+import { Box, Container, createTheme, CssBaseline, Grid,  IconButton,  Paper } from '@mui/material';
 import React from 'react'
 import { useStyles } from './MainPageBody.styles';
 import SearchBar from '../../../SearchBar';
@@ -38,7 +38,7 @@ const MainPageBody:React.FC=()=>{
             <Container sx={{ paddingTop:'10%'}}>
                 <SearchBar searchtext={searchtext}/>
             </Container>
-            <Grid container height='100%'>
+            <Grid container height='100%' marginLeft="3%">
                 <Grid item xs={3}>
                     <Box  className={classes.selectedbox}>
                         <IconButton href='/mainpage'>

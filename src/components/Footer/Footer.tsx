@@ -31,7 +31,7 @@ const Banner:React.FC=()=>{
     return(
         <ThemeProvider theme={themes}>
              <Paper className={classes.paper}>
-            <Grid container display="flex" className={classes.grid}  direction="row" justifyContent="center" alignItems="center">
+            <Grid  container display="flex" className={classes.grid}  direction="row" justifyContent="center" alignItems="center">
                 {isMobile?(<AccordionComponent/>):
                     (
                         <>
