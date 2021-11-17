@@ -1,9 +1,13 @@
 import React from 'react'
+
 import { CssBaseline, ThemeProvider, createTheme} from '@mui/material';
+
+
 
 
 import GaragesHeader from '../mobile/components/GaragesHeader';
 import GaragesBody from '../mobile/components/GaragesBody';
+
 
 const theme = createTheme({
   palette:{
@@ -27,8 +31,10 @@ const GaragePage:React.FC=()=>{
         <>
         <ThemeProvider theme={theme}>
             <CssBaseline/>
+
            <GaragesHeader/>
            <GaragesBody/>
+
             
             
         </ThemeProvider>
