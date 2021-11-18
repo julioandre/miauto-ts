@@ -1,5 +1,4 @@
-import { Typography } from '@material-ui/core';
-import { Button, Container, createTheme, CssBaseline, Link, Paper, TextField, ThemeProvider } from '@mui/material';
+import { Button, Container, createTheme, CssBaseline, Link, Paper, TextField, ThemeProvider, Typography } from '@mui/material';
 
 import React, { useState } from 'react';
 import {useStyles} from './LoginPageForm.styles'
@@ -87,7 +86,7 @@ const LoginPageForm:React.FC=()=>{
                     <TextField sx={{my:2}} name="password" onBlur={handleInputValue} onChange={handleInputValue} label="Password" fullWidth autoComplete="none" {...(errors["password"] && { error: true, helperText: errors["password"]  })}/>   
                     <Button sx={{my:2}} href="mainpage" variant="contained" type="submit" color="secondary" fullWidth >Login</Button> 
                     <Link sx={{ m:1 }} href="#" underline="always">
-                                {'Forgot Password'}
+                      <Typography variant="subtitle2" color="secondary">Forgot Password?</Typography>
                     </Link>
                     <Link sx={{ m:1 }} href="register" >
                                 <Typography variant="h6" color="secondary">Sign Up</Typography>
