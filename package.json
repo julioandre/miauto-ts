@@ -1,7 +1,7 @@
 {
   "name": "miauto-ts",
   "version": "0.1.0",
-  "homepage": "https://julioandre.github.io/miauto-ts/",
+  "homepage": "https://julioandre.github.io/miauto-ts",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.5.0",
