@@ -6,6 +6,7 @@ import GaragePage from "./pages/GaragePage";
 import RegisterPage from "./pages/RegisterPage";
 import LoginPage from "./pages/LoginPage";
 import ProfilePage from "./pages/ProfilePage";
+import StorePage from "./pages/StorePage";
 
 
 const App:React.FC=()=>{
@@ -19,6 +20,7 @@ const App:React.FC=()=>{
             <Route exact path="/register" component={RegisterPage}/>
             <Route exact path="/login" component={LoginPage}/>
             <Route exact path="/profile" component={ProfilePage}/>
+            <Route exact path="/store" component={StorePage}/>
         </Router>
     
     </>
