@@ -3,7 +3,7 @@ import {  createTheme, CssBaseline,  ThemeProvider } from '@mui/material';
 // import React, { useState } from 'react';
 
 
-import MainPageHeader from '../../components/MainPageHeader';
+import Headers from '../../components/Headers';
 import MainPageBody from '../../components/MainPageBody';
 
 
@@ -27,13 +27,14 @@ const theme = createTheme({
 //   password:"",
 // }
 const MainPage:React.FC=()=>{
+  const text ="Looking for a Garage?"
  
   // const [values,handleValues] = useState(initialValues)
     return(
         <>
         <ThemeProvider theme={theme}>
             <CssBaseline/>
-           <MainPageHeader/>
+           <Headers searchtext={text}/>
            <MainPageBody/>
           
         </ThemeProvider>

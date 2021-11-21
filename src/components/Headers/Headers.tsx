@@ -5,7 +5,7 @@ import Select, { SelectChangeEvent } from '@mui/material/Select';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import SettingsIcon from '@mui/icons-material/Settings';
-import { useStyles } from './GaragesHeader.styles'
+import { useStyles } from './Headers.styles'
 
 
  const theme= createTheme({
@@ -15,8 +15,11 @@ import { useStyles } from './GaragesHeader.styles'
         },
       },
  })
+ type Props={
+    searchtext:string
+  }
 
-const GaragesHeader:React.FC=()=>{
+const Headers:React.FC<Props>=({searchtext})=>{
     const [location, setLocation] = React.useState('Quito');
 
     const handleChange = (event: SelectChangeEvent) => {
@@ -65,10 +68,10 @@ const GaragesHeader:React.FC=()=>{
                     </Grid>
                 <Container sx={{ marginLeft:'2%',marginTop:'15%' }}>
                 <Typography variant="h5" color="gray">Welcome Back Eddie</Typography>
-                <Typography variant="h5" color="#143656">Looking for one of you cars?</Typography>
+                <Typography variant="h5" color="#143656">{searchtext}</Typography>
                 </Container>
             </ThemeProvider>       
         </>
     )
 }
-export default GaragesHeader;
+export default Headers;
