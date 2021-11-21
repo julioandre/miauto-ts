@@ -8,12 +8,12 @@ import DateRangeIcon from '@mui/icons-material/DateRange';
 import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
 import { useStyles } from './Banner.styles';
 
-const icon_list = [{tag:<MonetizationOnIcon sx={{ fontSize:50, mx:'35%'}}/>, text:"Up to 20% cheaper"},
-{tag:<ReceiptLongIcon sx={{ fontSize:50, mx:'35%'}} />, text:"Fixed Instant quotes"},
-{tag:<ThumbUpAltIcon sx={{ fontSize:50, mx:'35%'}}/>, text:"Trustworthy and reliable Mechanics"},
-{tag:<BuildIcon sx={{ fontSize:50, mx:'35%'}}/>, text:"1 year pasrts and repair warranty"},
-{tag:<DateRangeIcon sx={{ fontSize:50, mx:'35%'}}/>, text:"Next Day Bookings"},
-{tag:<DirectionsCarIcon sx={{ fontSize:50, mx:'35%'}}/>, text:"Get your car repaired at home or office"}]
+const icon_list = [{tag:<MonetizationOnIcon key="moneyIcon" sx={{ fontSize:50, mx:'35%', color:"#143656"}}/>, text:"Up to 20% cheaper"},
+{tag:<ReceiptLongIcon key="receiptIcon" sx={{ fontSize:50, mx:'35%', color:"#143656" }} />, text:"Fixed Instant quotes"},
+{tag:<ThumbUpAltIcon key="thumsUpIcon"  sx={{ fontSize:50, mx:'35%', color:"#143656"}}/>, text:"Trustworthy and reliable Mechanics"},
+{tag:<BuildIcon key="buildIcon" sx={{ fontSize:50, mx:'35%', color:"#143656"}}/>, text:"1 year parts and repair warranty"},
+{tag:<DateRangeIcon key="dateIcon" sx={{ fontSize:50, mx:'35%', color:"#143656"}}/>, text:"Next Day Bookings"},
+{tag:<DirectionsCarIcon key="carIcon" sx={{ fontSize:50, mx:'35%', color:"#143656"}}/>, text:"Get your car repaired at home or office"}]
 
 
 

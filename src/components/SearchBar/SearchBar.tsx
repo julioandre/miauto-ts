@@ -1,4 +1,4 @@
-import { alpha, Paper, styled, Typography } from '@mui/material';
+import { alpha, styled} from '@mui/material';
 import React, { useState } from 'react'
 
 import { InputBase } from '@mui/material';
