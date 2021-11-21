@@ -3,7 +3,8 @@ import { makeStyles } from "@mui/styles";
 export const useStyles = makeStyles((theme)=>({
     container:{
        
-        backgroundColor:'white'
+        backgroundColor:'white',
+        width:"100%"
     },
     paper:{
         backgroundColor: 'rgba(0,0,0,0.5)',

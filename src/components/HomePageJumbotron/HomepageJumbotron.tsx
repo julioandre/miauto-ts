@@ -89,20 +89,20 @@ const HomePageJumbotron:React.FC=()=>{
     return(
         <ThemeProvider theme={theme}>
             <CssBaseline/>
-            <Snackbar open={open3} autoHideDuration={6000} onClose={handleClose3}>
-            <Alert onClose={handleClose3} severity="success" sx={{ width: '100%' }}>
+            <Snackbar open={open3} autoHideDuration={6000} onClose={handleClose3} >
+            <Alert onClose={handleClose3} severity="success" sx={{ width: '100%' , height:"45%"}}>
                 {status}
             </Alert>
       </Snackbar>
-            <Paper className={classes.container}>
+            <Paper className={classes.container} >
             <NavBar/>
             <Grid container>
                 <Grid item xs={12} md={6}>
                     <Container className={classes.div} sx={{ mx:0 }}> 
-                    <Typography sx={{ my:0.2}}  align='center' variant='h4'>Car Repair & Servicing Made Easy</Typography>
-                    <Typography sx={{ my:0.2 }}  align='center' variant='h5'>Unbeatable Prices, mechanics you can trust, 2 hour service at any location in Quito</Typography>
-                    <Typography sx={{ my:0.2 }}   align='center' variant='h5'>10% off on first repair or service</Typography>
-                    <Typography sx={{ my:0.2 }}  align='center' variant='h6'>Various Garages all over Ecuador</Typography>
+                    <Typography sx={{ my:0.2}}   variant='h4'>Car Repair & Servicing Made Easy</Typography>
+                    <Typography sx={{ my:0.2 }}   variant='h5'>Unbeatable Prices, mechanics you can trust, 2 hour service at any location in Quito</Typography>
+                    <Typography sx={{ my:0.2 }}   variant='h5'>10% off on first repair or service</Typography>
+                    <Typography sx={{ my:0.2 }}   variant='h6'>Various Garages all over Ecuador</Typography>
                     </Container>
 
                 </Grid>
@@ -160,7 +160,7 @@ const HomePageJumbotron:React.FC=()=>{
                         </Dialog>
                             <Button sx={{ m:1 }} className={classes.boxelements} onSubmit={handleSubmit}
                              variant="contained" color="secondary" onClick={handleClickOpen1}>SEARCH </Button>
-                            <Divider variant='middle' sx={{ width:'90%' }} />
+                           
                             <Typography color="secondary"  sx={{ m:1 }} align='center' variant="h5">NOT SURE WHATS WRONG?
                             </Typography>
                             <Typography color="secondary"  className={classes.boxelements} sx={{ m:0.5 }} align='center' 
