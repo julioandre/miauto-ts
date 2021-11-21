@@ -1,4 +1,5 @@
 import { makeStyles } from "@mui/styles";
+import garage from '../../assets/garage.jpeg'
 
 export const useStyles = makeStyles((theme)=>({
     container:{

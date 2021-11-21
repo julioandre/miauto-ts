@@ -42,23 +42,30 @@ const HomePageJumbotron:React.FC=()=>{
       setOpen(false);
     };
 
-    const getLocation = () => {
+    const getLocation = (comp_type) => {
       handleClose();
       
-      if (!navigator.geolocation) {
-        setStatus('Geolocation is not supported by your browser');
-      } else {
-        setStatus('Locating...');
-        navigator.geolocation.getCurrentPosition((position) => {
-          setStatus('Located '+position.coords.latitude+ ' '+position.coords.longitude);
-          setLat(position.coords.latitude);
-          setLng(position.coords.longitude);
-          setOpen3(true);
-          console.log(lat,lng)
-        }, () => {
-          setStatus('Unable to retrieve your location');
-        });
+      if(comp_type){
+        if (!navigator.geolocation) {
+          setStatus('Geolocation is not supported by your browser');
+        } else {
+          setStatus('Locating...');
+          navigator.geolocation.getCurrentPosition((position) => {
+            setStatus('Located '+position.coords.latitude+ ' '+position.coords.longitude);
+            setLat(position.coords.latitude);
+            setLng(position.coords.longitude);
+            setOpen3(true);
+            console.log(lat,lng)
+          }, () => {
+            setStatus('Unable to retrieve your location');
+          });
+        }
       }
+      else{
+        setStatus('Reguest sent succesfully please be patient');
+        setOpen3(true);
+      }
+      
     }
     
   const handleClickOpen = () => {
@@ -99,10 +106,10 @@ const HomePageJumbotron:React.FC=()=>{
             <Grid container>
                 <Grid item xs={12} md={6}>
                     <Container className={classes.div} sx={{ mx:0 }}> 
-                    <Typography sx={{ my:0.2}}   variant='h4'>Car Repair & Servicing Made Easy</Typography>
-                    <Typography sx={{ my:0.2 }}   variant='h5'>Unbeatable Prices, mechanics you can trust, 2 hour service at any location in Quito</Typography>
-                    <Typography sx={{ my:0.2 }}   variant='h5'>10% off on first repair or service</Typography>
-                    <Typography sx={{ my:0.2 }}   variant='h6'>Various Garages all over Ecuador</Typography>
+                    <Typography sx={{ my:1}}   variant='h4'>Car Repair & Servicing Made Easy</Typography>
+                    <Typography sx={{ my:1 }}   variant='h5'>Unbeatable Prices, mechanics you can trust, 2 hour service at any location in Quito</Typography>
+                    <Typography sx={{ my:1 }}   variant='h5'>10% off on first repair or service</Typography>
+                    <Typography sx={{ my:1 }}   variant='h6'>Various Garages all over Ecuador</Typography>
                     </Container>
 
                 </Grid>
@@ -135,7 +142,7 @@ const HomePageJumbotron:React.FC=()=>{
                                 </DialogTitle>
                             <DialogActions>
                             <Button color="secondary" onClick={handleClose}>Disagree</Button>
-                            <Button color="secondary" onClick={getLocation} autoFocus>
+                            <Button color="secondary" onClick={()=>getLocation(true)} autoFocus>
                                 Agree
                             </Button>
                             </DialogActions>
@@ -156,7 +163,7 @@ const HomePageJumbotron:React.FC=()=>{
                             <DialogActions>
                             <Button color="warning" variant="outlined" onClick={handleClose1}>Close</Button>
                             </DialogActions>
-                              <CardComponent handleClose1={handleClose1}/>
+                              <CardComponent handleClose1={handleClose1} handlSnackBar={getLocation}/>
                         </Dialog>
                             <Button sx={{ m:1 }} className={classes.boxelements} onSubmit={handleSubmit}
                              variant="contained" color="secondary" onClick={handleClickOpen1}>SEARCH </Button>

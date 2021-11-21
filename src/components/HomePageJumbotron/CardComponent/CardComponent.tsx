@@ -9,8 +9,9 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 
 type Props={
   handleClose1:any
+  handlSnackBar:any
 }
-  const CardComponent:React.FC<Props>=({ handleClose1 })=>{
+  const CardComponent:React.FC<Props>=({ handleClose1,handlSnackBar })=>{
     const [open, setOpen] = React.useState(false);
     const handleClose = (event?: React.SyntheticEvent, reason?: string) => {
         if (reason === 'clickaway') {
@@ -19,6 +20,7 @@ type Props={
     
         setOpen(false);
       };
+    const delay = ms => new Promise(res => setTimeout(res, ms));
     const [expanded, setExpanded] = React.useState(false);
     const [postcode, setPostcode]= useState(' ');
     const [housenumber, setHouseNumber] = useState(' ');
@@ -29,13 +31,11 @@ type Props={
     };
     
    
-    const handleFormSubmit = async (e: any) => {
+    const handleFormSubmit =  () => {
         // this function will be triggered by the submit event
-        e.preventDefault();
-        if(postcode && housenumber && datevalue){
-            setOpen(true)
-        }
-       
+        handleClose1()
+        handlSnackBar(false)
+        
         }
       return(
           <>
@@ -65,9 +65,9 @@ type Props={
       <IconButton aria-label="add to favorites">
         <FavoriteIcon />
       </IconButton>
-      <form onSubmit={handleFormSubmit}>
+      <form >
             
-            <Button sx={{my:2}} variant="contained" type="submit" color="secondary" fullWidth onClick={handleClose1}>Send Repair Request</Button>   
+            <Button sx={{my:2}} variant="contained" type="submit" color="secondary" fullWidth onClick={handleFormSubmit} >Send Repair Request</Button>   
       </form>
     </CardActions>
   
