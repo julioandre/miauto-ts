@@ -1,7 +1,14 @@
-import { Badge, Button, Card, CardActions, CardContent, CardMedia,  createTheme, CssBaseline, IconButton, Paper, ThemeProvider, Typography } from "@mui/material";
+import { Badge, Box, Button, Card, CardActions, CardContent, CardMedia,  Container,  createTheme, CssBaseline, Grid, IconButton, Paper, ThemeProvider, Typography } from "@mui/material";
 import React, { FC, useState } from "react";
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import product from '../../assets/product.png'
+import SearchBar from '../SearchBar'
+import {useStyles} from './StorePageBody.styles'
+import AppSettingsAltIcon from '@mui/icons-material/AppSettingsAlt';
+import HomeIcon from '@mui/icons-material/Home';
+import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
+import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
+import { height } from "@mui/system";
 
 
 
@@ -24,6 +31,8 @@ const theme = createTheme({
   })
 
 const SearchPageBody:FC<IProps> = (props) => {
+    const classes = useStyles()
+    const text = "Looking for Products"
     const [cartNumber, setCartNumber]=useState(0);
     const cart = [{}]
     const items = [{name:"Gastrol Edge", price:"$25",image:product},{name:"Total Classic", price:"$25",image:product},{name:"Wipers", price:"$50",image:product},{name:"Brake Fluid", price:"$15",image:product},{name:"Engine Oil", price:"$35",image:product}]
@@ -35,15 +44,48 @@ const SearchPageBody:FC<IProps> = (props) => {
         <>
         <ThemeProvider theme={theme}>
             <CssBaseline/>
-            <Paper sx={{ height:"80vh" }}>
-            <IconButton sx={{marginLeft:'85%',marginTop:"1.5%"}} aria-label="notifications" color="inherit">
+            <div style={{ height:"85vh" }}>
+            <Paper sx={{ height:"110%"}}>
+            <Container sx={{ paddingTop:'10%'}}>
+                <SearchBar searchtext={text}/>
+            </Container>
+            <Grid container height='10%' marginLeft="3%">
+            <Grid item xs={3}>
+                    <Box className={classes.selectedbox}>
+                        <IconButton href='/profile'>
+                        <AppSettingsAltIcon fontSize="large"/>
+                        </IconButton>
+                    </Box>
+                </Grid>
+                <Grid item xs={3}>
+                    <Box  className={classes.box}>
+                        <IconButton href='/mainpage'>
+                        <HomeIcon fontSize="large"/>
+                        </IconButton>
+                    </Box>
+                </Grid>
+                <Grid item xs={3}>
+                    <Box className={classes.box}>
+                        <IconButton href='/garages'>
+                        <DirectionsCarIcon fontSize="large"/>
+                        </IconButton>
+                    </Box>
+                </Grid>
+                <Grid item xs={3}>
+                    <Box className={classes.box}>
+                        <ShoppingBasketIcon fontSize="large"/>
+                    </Box>
+                </Grid>
+               
+            </Grid>
+            <IconButton sx={{marginLeft:'85%',marginTop:"5%"}} aria-label="notifications" color="inherit">
                         <Badge badgeContent={cartNumber} color='secondary'> 
                             <ShoppingCartOutlinedIcon fontSize="large"/>
                         </Badge>
             </IconButton>
             {items.map(item=>{
                 return(
-                <Card  sx={{ display:"flex",width:"70%",height:70,marginLeft:"2%",my:3.5, backgroundColor:"white"}}>
+                <Card  sx={{ display:"flex",width:"70%",height:70,marginLeft:"2%",paddingBottom:"5%", backgroundColor:"white",my:4 }}>
                     <CardMedia component="img" sx={{ width:"50px",height:"50px", marginTop:"5%",marginLeft:"2%"}} image={item.image} alt="product" />
                     <CardContent sx={{width:"40%"}}> 
                         <Typography sx={{paddingTop:"0px"}} variant="body1">{item.name}</Typography>
@@ -59,6 +101,7 @@ const SearchPageBody:FC<IProps> = (props) => {
                 </Card>)
             })}
             </Paper>
+            </div>
         </ThemeProvider>
         
 
