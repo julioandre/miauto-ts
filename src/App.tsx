@@ -1,11 +1,11 @@
 import React from "react";
-import Homepage from './components/Homepage'
-import MainPage from "./components/MainPage";
+import Homepage from './pages/Homepage'
+import MainPage from "./pages/MainPage";
 import {BrowserRouter as Router,Route } from 'react-router-dom';
-import GaragePage from "./components/GaragePage";
-import RegisterPage from "./components/RegisterPage";
-import LoginPage from "./components/LoginPage";
-import ProfilePage from "./components/mobile/pages/ProfilePage";
+import GaragePage from "./pages/GaragePage";
+import RegisterPage from "./pages/RegisterPage";
+import LoginPage from "./pages/LoginPage";
+import ProfilePage from "./pages/ProfilePage";
 
 
 const App:React.FC=()=>{
