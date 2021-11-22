@@ -66,7 +66,7 @@ const Headers:React.FC<Props>=({searchtext})=>{
                     </IconButton>
                     
                     </Grid>
-                <Container sx={{ marginLeft:'2%',marginTop:'15%' }}>
+                <Container sx={{ marginLeft:'2%',marginTop:'5%' }}>
                 <Typography variant="h5" color="gray">Welcome Back Eddie</Typography>
                 <Typography variant="h5" color="#143656">{searchtext}</Typography>
                 </Container>

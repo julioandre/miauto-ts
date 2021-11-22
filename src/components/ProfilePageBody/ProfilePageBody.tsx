@@ -44,7 +44,9 @@ const ProfilePageBody:React.FC=()=>{
             </Carousel>
         <ProfilePageForm/>
         <AppNavBar/>
+        
         </Paper>
+        
        
        
         </>

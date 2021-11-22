@@ -55,7 +55,7 @@ const CarsPageBody:React.FC=()=>{
             
                 <SearchBar searchtext={searchtext}/>
            
-            <Fab color="primary" onClick={handleClickOpen} aria-label="add" sx={{ position:"fixed", margin:"76% 0% 0% 80%"}}>
+            <Fab color="primary" onClick={handleClickOpen} aria-label="add" sx={{ position:"fixed", margin:"0% 0% 0% 83%"}}>
                 <AddIcon />
             </Fab>
             
@@ -116,7 +116,9 @@ const CarsPageBody:React.FC=()=>{
 
                   ))}
             
+            <Box sx={{ marginTop:"15%" }}>
         <AppNavBar/>
+        </Box>
         </Paper>
 
         </ThemeProvider>
