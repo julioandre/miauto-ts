@@ -9,6 +9,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import { height } from "@mui/system";
+import AppNavBar from "../AppNavBar";
 
 
 
@@ -46,38 +47,10 @@ const SearchPageBody:FC<IProps> = (props) => {
             <CssBaseline/>
             <div style={{ height:"85vh" }}>
             <Paper sx={{ height:"110%"}}>
-            <Container sx={{ paddingTop:'10%'}}>
+           
                 <SearchBar searchtext={text}/>
-            </Container>
-            <Grid container height='10%' marginLeft="3%">
-            <Grid item xs={3}>
-                    <Box className={classes.selectedbox}>
-                        <IconButton href='/profile'>
-                        <AppSettingsAltIcon fontSize="large"/>
-                        </IconButton>
-                    </Box>
-                </Grid>
-                <Grid item xs={3}>
-                    <Box  className={classes.box}>
-                        <IconButton href='/mainpage'>
-                        <HomeIcon fontSize="large"/>
-                        </IconButton>
-                    </Box>
-                </Grid>
-                <Grid item xs={3}>
-                    <Box className={classes.box}>
-                        <IconButton href='/garages'>
-                        <DirectionsCarIcon fontSize="large"/>
-                        </IconButton>
-                    </Box>
-                </Grid>
-                <Grid item xs={3}>
-                    <Box className={classes.box}>
-                        <ShoppingBasketIcon fontSize="large"/>
-                    </Box>
-                </Grid>
-               
-            </Grid>
+           
+           
             <IconButton sx={{marginLeft:'85%',marginTop:"5%"}} aria-label="notifications" color="inherit">
                         <Badge badgeContent={cartNumber} color='secondary'> 
                             <ShoppingCartOutlinedIcon fontSize="large"/>
@@ -100,6 +73,7 @@ const SearchPageBody:FC<IProps> = (props) => {
                     </CardActions>
                 </Card>)
             })}
+            <AppNavBar/>
             </Paper>
             </div>
         </ThemeProvider>

@@ -4,7 +4,7 @@ import AddIcon from '@mui/icons-material/Add';
 
 
 import React from 'react'
-import { useStyles } from './GaragesBody.styles';
+import { useStyles } from './CarsPageBody.styles';
 import SearchBar from '../SearchBar';
 import { ThemeProvider } from '@mui/private-theming';
 
@@ -13,7 +13,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import { arrayIndexingWithLength } from '../../utils/arrayIndexingWithLength';
-
+import AppNavBar from '../AppNavBar';
 import CardComponent from './CardComponent'
 
 
@@ -36,7 +36,7 @@ const theme = createTheme({
     }
   })
 
-const GaragesBody:React.FC=()=>{
+const CarsPageBody:React.FC=()=>{
     const [open, setOpen] = React.useState(false);
     const handleClose = () => {
       setOpen(false);
@@ -52,42 +52,9 @@ const GaragesBody:React.FC=()=>{
         <ThemeProvider theme={theme}>
         <CssBaseline/>
         <Paper >
-            <Container sx={{ paddingTop:'10%'}}>
+            
                 <SearchBar searchtext={searchtext}/>
-            </Container>
-            <Grid container height='100%' marginLeft="3%">
-                <Grid item xs={3}>
-                    <Box  className={classes.selectedbox}>
-
-                        <IconButton href='/garages'>
-
-                        <DirectionsCarIcon fontSize="large"/>
-                        </IconButton>
-                    </Box>
-                </Grid>
-                <Grid item xs={3}>
-                    <Box className={classes.box}>
-
-                        <IconButton href='/mainpage'>
-
-                        <HomeIcon fontSize="large"/>
-                        
-                        </IconButton>
-                    </Box>
-                </Grid>
-                <Grid item xs={3}>
-                    <Box className={classes.box}>
-                        <ShoppingBasketIcon fontSize="large"/>
-                    </Box>
-                </Grid>
-                <Grid item xs={3}>
-                    <Box className={classes.box}>
-                        <IconButton href='/profile'>
-                        <AppSettingsAltIcon fontSize="large"/>
-                        </IconButton>
-                    </Box>
-                </Grid>
-            </Grid>
+           
             <Fab color="primary" onClick={handleClickOpen} aria-label="add" sx={{ position:"fixed", margin:"76% 0% 0% 80%"}}>
                 <AddIcon />
             </Fab>
@@ -149,7 +116,7 @@ const GaragesBody:React.FC=()=>{
 
                   ))}
             
-                
+        <AppNavBar/>
         </Paper>
 
         </ThemeProvider>
@@ -158,4 +125,4 @@ const GaragesBody:React.FC=()=>{
     )
 }
 
-export default GaragesBody;
+export default CarsPageBody;

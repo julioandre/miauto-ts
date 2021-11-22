@@ -9,42 +9,14 @@ import AppSettingsAltIcon from '@mui/icons-material/AppSettingsAlt';
 import HomeIcon from '@mui/icons-material/Home';
 import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
-
+import AppNavBar from '../AppNavBar';
 
 const ProfilePageBody:React.FC=()=>{
     const classes = useStyles()
     return(
         <>
         <Paper>
-        <Grid container height='100%' marginLeft="3%" marginTop="5%" paddingTop="3%">
-                <Grid item xs={3}>
-                    <Box className={classes.selectedbox}>
-                        <IconButton href='/profile'>
-                        <AppSettingsAltIcon fontSize="large"/>
-                        </IconButton>
-                    </Box>
-                </Grid>
-                <Grid item xs={3}>
-                    <Box  className={classes.box}>
-                        <IconButton href='/mainpage'>
-                        <HomeIcon fontSize="large"/>
-                        </IconButton>
-                    </Box>
-                </Grid>
-                <Grid item xs={3}>
-                    <Box className={classes.box}>
-                        <IconButton href='/garages'>
-                        <DirectionsCarIcon fontSize="large"/>
-                        </IconButton>
-                    </Box>
-                </Grid>
-                <Grid item xs={3}>
-                    <Box className={classes.box}>
-                        <ShoppingBasketIcon fontSize="large"/>
-                    </Box>
-                </Grid>
-                
-            </Grid>
+       
             <Typography variant="h5" marginTop="10%" marginLeft="5%"> Upcoming Appointments</Typography>
         <Carousel className={classes.container} >
                 
@@ -71,6 +43,7 @@ const ProfilePageBody:React.FC=()=>{
                 
             </Carousel>
         <ProfilePageForm/>
+        <AppNavBar/>
         </Paper>
        
        
