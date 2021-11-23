@@ -6,7 +6,7 @@ import { CssBaseline, ThemeProvider, createTheme} from '@mui/material';
 
 
 import Headers from '../../components/Headers';
-import GaragesBody from '../../components/GaragesBody';
+import CarsPageBody from '../../components/CarsPageBody';
 
 const theme = createTheme({
   palette:{
@@ -23,7 +23,7 @@ const theme = createTheme({
   }
   })
 
-const GaragePage:React.FC=()=>{
+const CarsPage:React.FC=()=>{
   const text = " Looking for one of your cars?"
   
   
@@ -33,7 +33,7 @@ const GaragePage:React.FC=()=>{
             <CssBaseline/>
 
            <Headers searchtext={text}/>
-           <GaragesBody/>
+           <CarsPageBody/>
 
 
             
@@ -42,4 +42,4 @@ const GaragePage:React.FC=()=>{
         </>
     )
 }
-export default GaragePage;
+export default CarsPage;

@@ -16,7 +16,7 @@ const Search = styled('div')(({ theme }) => ({
     '&:hover': {
       backgroundColor: alpha(theme.palette.common.white, 0.25),
     },
-    margin:'1% 20% 5% 20%',
+    margin:'5% 20% 5% 20%',
     width: '65%',
    
     
@@ -60,7 +60,7 @@ const SearchBar:React.FC<Props>=({searchtext})=>{
     return(
         
       
-        <><Search >
+        <><Search  >
         <SearchIconWrapper>
           <SearchIcon />
         </SearchIconWrapper>

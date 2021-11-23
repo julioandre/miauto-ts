@@ -48,7 +48,7 @@ interface ExpandMoreProps extends IconButtonProps {
           <>
       
     
-    <Card sx={{ maxWidth: 345,m:3 ,backgroundColor:'white',borderRadius:'5px'}}>
+    <Card sx={{ maxWidth: 345,marginBottom:3 ,backgroundColor:'white',borderRadius:'5px'}}>
     <CardHeader
       subheader="Ford Mustang"
       
