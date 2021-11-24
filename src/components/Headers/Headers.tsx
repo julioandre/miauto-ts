@@ -4,7 +4,6 @@ import React from 'react'
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-import SettingsIcon from '@mui/icons-material/Settings';
 import { useStyles } from './Headers.styles'
 
 

@@ -1,6 +1,6 @@
 import { Box,  createTheme, CssBaseline,   Paper } from '@mui/material';
 import React from 'react'
-import SearchBar from '../SearchBar';
+import SearchBar from '../Searchbar';
 import { ThemeProvider } from '@mui/private-theming';
 import CardComponent from './CardComponent';
 import { arrayIndexingWithLength } from '../../utils/arrayIndexingWithLength';

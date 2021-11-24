@@ -4,7 +4,6 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import GarageIcon from '@mui/icons-material/Garage';
 import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
 import StoreIcon from '@mui/icons-material/Store';
-import { IconButton } from "@material-ui/core";
 
 const theme = createTheme({
     palette:{
