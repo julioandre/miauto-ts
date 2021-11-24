@@ -1,4 +1,5 @@
 import { Button, Container, createTheme, CssBaseline, FormLabel, TextField, ThemeProvider } from '@mui/material';
+import { SnackbarContainer, snackbarService } from "uno-material-ui";
 
 import React, { useState } from 'react';
 
@@ -17,6 +18,9 @@ const theme = createTheme({
   })
   
 const ProfilePageForm:React.FC=()=>{
+  const onOpenSuccess = (text,texttype) => {
+    snackbarService.showSnackbar(text,texttype);
+  };
     
     const [errors, setErrors] = useState({} as any);
     const initialFormValues = {
@@ -79,7 +83,7 @@ const ProfilePageForm:React.FC=()=>{
         <>
         <ThemeProvider theme={theme}>
             <CssBaseline/>
-            
+            <SnackbarContainer/>
             <Container sx={{ marginTop:"10%",paddingBottom:"23%" }} >
               <form onSubmit={handleFormSubmit}>
                   <FormLabel>Profile Information</FormLabel>
@@ -87,7 +91,7 @@ const ProfilePageForm:React.FC=()=>{
                     <TextField sx={{my:2}} name="address" defaultValue="Quito 65, 9087" onBlur={handleInputValue} onChange={handleInputValue} label="Address" fullWidth autoComplete="none" />
                     <TextField sx={{my:2}} name="email" defaultValue="eddiebremmer@gmail.com" onBlur={handleInputValue} onChange={handleInputValue} label="Email" fullWidth autoComplete="none" {...(errors["email"] && { error: true, helperText: errors["email"] })}/>   
                     <TextField sx={{my:2}} name="phone" defaultValue="0123547856"  onBlur={handleInputValue} onChange={handleInputValue} label="Phone" fullWidth autoComplete="none"/>    
-                    <Button sx={{my:2}} variant="contained" type="submit" color="secondary" fullWidth href="mainpage">Update</Button>
+                    <Button sx={{my:2}} variant="contained" type="submit" onClick={()=>onOpenSuccess("Profile Updated Succesfully", "success")} color="secondary" fullWidth href="mainpage">Update</Button>
                     <Button sx={{my:2}} variant="contained" type="submit" color="error" fullWidth href="login">Sign Out</Button>      
                 </form>
               </Container>

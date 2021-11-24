@@ -1,10 +1,12 @@
-import { Alert, Box, Button,  Container,  createTheme, CssBaseline, Dialog, DialogActions, DialogTitle, Divider, FormControl, FormLabel, Grid, InputAdornment, Link, Paper, Snackbar, TextField, ThemeProvider, Typography } from '@mui/material';
+import {  Box, Button,  Container,  createTheme, CssBaseline, Dialog, DialogActions, DialogTitle, FormControl, FormLabel, Grid, InputAdornment, Link, Paper,  TextField, ThemeProvider, Typography } from '@mui/material';
 import React, { useState } from 'react'
 import {useStyles} from './HomePageJumbotron.styles';
 import RoomIcon from '@mui/icons-material/Room';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import NavBar from '../NavBar';
 import CardComponent from './CardComponent';
+
+import { SnackbarContainer, snackbarService } from "uno-material-ui";
 
 
 
@@ -25,48 +27,40 @@ const theme = createTheme({
   })
 
 const HomePageJumbotron:React.FC=()=>{
-  const [open3, setOpen3] = React.useState(false);
-    const handleClose3 = (event?: React.SyntheticEvent, reason?: string) => {
-        if (reason === 'clickaway') {
-          return;
-        }
-    
-        setOpen3(false);
-      };
+  const onOpenSuccess = (text,texttype) => {
+    snackbarService.showSnackbar(text,texttype);
+  };
     const [open, setOpen] = React.useState(false);
     const [open1, setOpen1] = React.useState(false);
     const [lat, setLat] = useState(0);
     const [lng, setLng] = useState(0);
-    const [status, setStatus] = useState(' ');
+    
     const handleClose = () => {
       setOpen(false);
     };
 
-    const getLocation = (comp_type) => {
+    const getLocation = () => {
       handleClose();
       
-      if(comp_type){
+     
         if (!navigator.geolocation) {
-          setStatus('Geolocation is not supported by your browser');
+          onOpenSuccess( 'Geolocation is not supported by your browser', "error")
         } else {
-          setStatus('Locating...');
           navigator.geolocation.getCurrentPosition((position) => {
-            setStatus('Located '+position.coords.latitude+ ' '+position.coords.longitude);
+            
             setLat(position.coords.latitude);
             setLng(position.coords.longitude);
-            setOpen3(true);
+            const pos = "your location is " +lat + lng;
+            onOpenSuccess(pos,"success")
             console.log(lat,lng)
           }, () => {
-            setStatus('Unable to retrieve your location');
+            onOpenSuccess( 'Unable to retrieve your location', "error")
           });
         }
       }
-      else{
-        setStatus('Reguest sent succesfully please be patient');
-        setOpen3(true);
-      }
+    
       
-    }
+    
     
   const handleClickOpen = () => {
     setOpen(true);
@@ -96,11 +90,8 @@ const HomePageJumbotron:React.FC=()=>{
     return(
         <ThemeProvider theme={theme}>
             <CssBaseline/>
-            <Snackbar open={open3} autoHideDuration={6000} onClose={handleClose3} >
-            <Alert onClose={handleClose3} severity="success" sx={{ width: '100%' , height:"45%"}}>
-                {status}
-            </Alert>
-      </Snackbar>
+            <SnackbarContainer/>
+            
             <Paper className={classes.container} >
             <NavBar/>
             <Grid container>
@@ -142,7 +133,7 @@ const HomePageJumbotron:React.FC=()=>{
                                 </DialogTitle>
                             <DialogActions>
                             <Button color="secondary" onClick={handleClose}>Disagree</Button>
-                            <Button color="secondary" onClick={()=>getLocation(true)} autoFocus>
+                            <Button color="secondary" onClick={()=>getLocation()} autoFocus>
                                 Agree
                             </Button>
                             </DialogActions>
@@ -163,7 +154,7 @@ const HomePageJumbotron:React.FC=()=>{
                             <DialogActions>
                             <Button color="warning" variant="outlined" onClick={handleClose1}>Close</Button>
                             </DialogActions>
-                              <CardComponent handleClose1={handleClose1} handlSnackBar={getLocation}/>
+                              <CardComponent handleClose1={handleClose1} handlSnackBar={onOpenSuccess}/>
                         </Dialog>
                             <Button sx={{ m:1 }} className={classes.boxelements} onSubmit={handleSubmit}
                              variant="contained" color="secondary" onClick={handleClickOpen1}>SEARCH </Button>

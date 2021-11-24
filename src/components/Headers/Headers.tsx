@@ -61,9 +61,7 @@ const Headers:React.FC<Props>=({searchtext})=>{
                             <NotificationsIcon/>
                         </Badge>
                     </IconButton>
-                    <IconButton aria-label="settings" color="inherit">
-                       <SettingsIcon/>
-                    </IconButton>
+                    
                     
                     </Grid>
                 <Container sx={{ marginLeft:'2%',marginTop:'5%' }}>

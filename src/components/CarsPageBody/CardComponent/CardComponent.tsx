@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import car from '../../../assets/car.jpeg'
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { SnackbarContainer, snackbarService } from "uno-material-ui";
+
 
 
 
@@ -23,6 +25,9 @@ interface ExpandMoreProps extends IconButtonProps {
   }));
 
   const CardComponent:React.FC=()=>{
+    const onOpenSuccess = (text,texttype) => {
+      snackbarService.showSnackbar(text,texttype);
+    };
     const [open, setOpen] = React.useState(false);
     const handleClose = (event?: React.SyntheticEvent, reason?: string) => {
         if (reason === 'clickaway') {
@@ -38,16 +43,19 @@ interface ExpandMoreProps extends IconButtonProps {
 
     const handleExpandClick = () => {
       setExpanded(!expanded);
+     
     };
     const handleEdit=()=>{
       setDisabled(!disabled)
+      setExpanded(!expanded)
+      onOpenSuccess("Car Updated Succesfully","success");
     }
    
     
       return(
           <>
       
-    
+    <SnackbarContainer/>
     <Card sx={{ maxWidth: 345,marginBottom:3 ,backgroundColor:'white',borderRadius:'5px'}}>
     <CardHeader
       subheader="Ford Mustang"

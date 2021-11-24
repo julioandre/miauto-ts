@@ -1,14 +1,9 @@
-import { Badge, Box, Button, Card, CardActions, CardContent, CardMedia,  Container,  createTheme, CssBaseline, Grid, IconButton, Paper, ThemeProvider, Typography } from "@mui/material";
+import { Badge,  Button, Card, CardActions, CardContent, CardMedia,   createTheme, CssBaseline,  IconButton, Paper, ThemeProvider, Typography } from "@mui/material";
 import React, { FC, useState } from "react";
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import product from '../../assets/product.png'
 import SearchBar from '../SearchBar'
 import {useStyles} from './StorePageBody.styles'
-import AppSettingsAltIcon from '@mui/icons-material/AppSettingsAlt';
-import HomeIcon from '@mui/icons-material/Home';
-import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
-import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
-import { height } from "@mui/system";
 import AppNavBar from "../AppNavBar";
 
 
@@ -73,7 +68,7 @@ const SearchPageBody:FC<IProps> = (props) => {
                     </CardActions>
                 </Card>)
             })}
-            <AppNavBar/>
+            <AppNavBar selected="store"/>
             </Paper>
             </div>
         </ThemeProvider>

@@ -1,6 +1,5 @@
-import { Box, Container, createTheme, CssBaseline, Grid,  IconButton,  Paper } from '@mui/material';
+import { Box,  createTheme, CssBaseline,   Paper } from '@mui/material';
 import React from 'react'
-import { useStyles } from './GaragesPageBody.styles';
 import SearchBar from '../SearchBar';
 import { ThemeProvider } from '@mui/private-theming';
 import CardComponent from './CardComponent';
@@ -24,7 +23,7 @@ const theme = createTheme({
   })
 
 const GaragesPageBody:React.FC=()=>{
-    const classes = useStyles();
+    
     const searchtext = "Looking for a Garage"
     return(
         <>
@@ -38,7 +37,7 @@ const GaragesPageBody:React.FC=()=>{
                      <CardComponent/>
                   ))}
         <Box sx={{ marginTop:"15%" }}>
-        <AppNavBar/>
+        <AppNavBar selected="garage"/>
         </Box>
             
         </Paper>

@@ -117,7 +117,7 @@ const CarsPageBody:React.FC=()=>{
                   ))}
             
             <Box sx={{ marginTop:"15%" }}>
-        <AppNavBar/>
+        <AppNavBar selected="cars"/>
         </Box>
         </Paper>
 

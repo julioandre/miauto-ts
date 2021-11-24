@@ -1,7 +1,6 @@
 {
   "name": "miauto-ts",
   "version": "0.1.0",
-  
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.5.0",
@@ -31,6 +30,7 @@
     "react-scripts": "4.0.3",
     "react-shapes": "^0.1.0",
     "typescript": "^4.1.2",
+    "uno-material-ui": "^2.0.10",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
@@ -38,7 +38,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
-   
   },
   "eslintConfig": {
     "extends": [
