@@ -1,17 +1,9 @@
 
-import { Box,  Container, createTheme, CssBaseline, Grid,  IconButton,  Paper , Fab, Dialog, DialogTitle, DialogActions, Button, TextField, MenuItem} from '@mui/material';
+import { Box,  Container, createTheme, CssBaseline,Paper , Fab, Dialog, DialogTitle, DialogActions, Button, TextField, MenuItem} from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
-
-
 import React from 'react'
-import { useStyles } from './CarsPageBody.styles';
-import SearchBar from '../SearchBar';
+import SearchBar from '../Searchbar';
 import { ThemeProvider } from '@mui/private-theming';
-
-import AppSettingsAltIcon from '@mui/icons-material/AppSettingsAlt';
-import HomeIcon from '@mui/icons-material/Home';
-import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
-import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import { arrayIndexingWithLength } from '../../utils/arrayIndexingWithLength';
 import AppNavBar from '../AppNavBar';
 import CardComponent from './CardComponent'
@@ -45,7 +37,7 @@ const CarsPageBody:React.FC=()=>{
         setOpen(true);
     };
 
-    const classes = useStyles();
+ 
     const searchtext = "Looking for you car"
     return(
         <>
@@ -117,7 +109,7 @@ const CarsPageBody:React.FC=()=>{
                   ))}
             
             <Box sx={{ marginTop:"15%" }}>
-        <AppNavBar/>
+        <AppNavBar selected="cars"/>
         </Box>
         </Paper>
 

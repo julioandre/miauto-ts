@@ -8,7 +8,7 @@ export const useStyles = makeStyles((theme)=>({
         width:"100%"
     },
     paper:{
-        backgroundColor: 'rgba(0,0,0,0.5)',
+        backgroundColor: 'rgba(192,192,192,0.5)',
         borderRadius:'10px',
         margin:'10% 0%',
     },

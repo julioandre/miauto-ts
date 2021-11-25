@@ -1,3 +1,4 @@
+import { IconButton } from '@material-ui/core';
 import { Container, createTheme, Paper, ThemeProvider, Typography } from '@mui/material';
 import React from 'react';
 import logo from '../../assets/logo.png'
@@ -31,7 +32,8 @@ const LoginPageHeader:React.FC=()=>{
          <ThemeProvider theme={theme}>
             <Paper className={classes.paper}>
             <Container sx={{display:"flex" ,alignItems:"center", justifyContent:'center',paddingY:3}}>
-                <img src={logo} alt="Miauto" className={classes.img} /> 
+              <IconButton href="/">
+                <img src={logo} alt="Miauto" className={classes.img}  /> </IconButton>
                 
             </Container>
             <Container sx={{display:"flex" ,alignItems:"center", justifyContent:'center',paddingY:3}}>

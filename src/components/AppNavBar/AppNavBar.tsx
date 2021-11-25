@@ -11,10 +11,17 @@ const theme = createTheme({
         default:'white',
         paper:'#46d0d9',
       },}})
-interface IProps {};
+interface IProps {
+  selected:string
+};
 
-const AppNavBar:FC<IProps> = (props) => {
-    const [value, setValue] = React.useState(0);
+const AppNavBar:FC<IProps> = ({selected}) => {
+    
+  const [value, setValue] = React.useState(selected);
+
+  const handleChange = (event: React.SyntheticEvent, newValue: string) => {
+    setValue(selected);
+  };
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline/>
@@ -22,14 +29,13 @@ const AppNavBar:FC<IProps> = (props) => {
         <BottomNavigation
           showLabels
           value={value}
-          onChange={(event, newValue) => {
-            setValue(newValue);
-          }}
+          onChange={handleChange
+          }
         >
-          <BottomNavigationAction href="/garages" label="Garages" icon={<GarageIcon />} />
-          <BottomNavigationAction href="/cars" label="Cars" icon={<DirectionsCarIcon />} />
-          <BottomNavigationAction href="/store" label="Store" icon={<StoreIcon/>} />
-          <BottomNavigationAction href="/profile" label="Profile" icon={<SettingsIcon />} />
+          <BottomNavigationAction href="garages"  value="garage" label="Garages" icon={<GarageIcon />} />
+          <BottomNavigationAction href="/cars" value="cars" label="Cars" icon={<DirectionsCarIcon />} />
+          <BottomNavigationAction href="/store" value="store" label="Store" icon={<StoreIcon/>} />
+          <BottomNavigationAction href="/profile" value="profile" label="Profile" icon={<SettingsIcon />} />
         </BottomNavigation>
       </Paper>
         </ThemeProvider>

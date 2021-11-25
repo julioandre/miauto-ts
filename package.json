@@ -1,7 +1,6 @@
 {
   "name": "miauto-ts",
   "version": "0.1.0",
-  
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.5.0",
@@ -20,8 +19,10 @@
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "konva": "^8.2.2",
+    "material-ui-search-bar": "^1.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-geocode": "^0.2.3",
     "react-google-maps": "^9.4.5",
     "react-hook-form": "^7.17.5",
     "react-konva": "^17.0.2-5",
@@ -31,6 +32,7 @@
     "react-scripts": "4.0.3",
     "react-shapes": "^0.1.0",
     "typescript": "^4.1.2",
+    "uno-material-ui": "^2.0.10",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
@@ -38,7 +40,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
-   
   },
   "eslintConfig": {
     "extends": [

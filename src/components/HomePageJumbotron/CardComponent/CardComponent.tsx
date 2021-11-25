@@ -34,7 +34,7 @@ type Props={
     const handleFormSubmit =  () => {
         // this function will be triggered by the submit event
         handleClose1()
-        handlSnackBar(false)
+        handlSnackBar("Request succesfully sent", "success")
         
         }
       return(

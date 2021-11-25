@@ -2,7 +2,7 @@ import { Alert,  Button, Card, CardActions, CardContent, CardHeader, CardMedia, 
 import React, { useState } from 'react';
 import store from '../../../assets/store.jpeg'
 import FavoriteIcon from '@mui/icons-material/Favorite';
-
+import { SnackbarContainer, snackbarService } from "uno-material-ui";
 
 
 
@@ -23,14 +23,10 @@ interface ExpandMoreProps extends IconButtonProps {
   }));
 
   const CardComponent:React.FC=()=>{
-    const [open, setOpen] = React.useState(false);
-    const handleClose = (event?: React.SyntheticEvent, reason?: string) => {
-        if (reason === 'clickaway') {
-          return;
-        }
-    
-        setOpen(false);
-      };
+  
+    const onOpenSuccess = (text,texttype) => {
+      snackbarService.showSnackbar(text,texttype);
+    };
     const [expanded, setExpanded] = React.useState(false);
     const [postcode, setPostcode]= useState(' ');
     const [housenumber, setHouseNumber] = useState(' ');
@@ -44,18 +40,14 @@ interface ExpandMoreProps extends IconButtonProps {
         // this function will be triggered by the submit event
         e.preventDefault();
         if(postcode && housenumber && datevalue){
-            setOpen(true)
+            onOpenSuccess("Succesfully Booked Appointment", "success")
         }
        
         }
       return(
           <>
-        <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
-            <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
-                Booking Succeful
-            </Alert>
-      </Snackbar>
-    
+        
+    <SnackbarContainer/>
     <Card sx={{ maxWidth: 345,marginBottom:3 ,backgroundColor:'white',borderRadius:'5px'}}>
     <CardHeader
       subheader="Quito,Ecuador"

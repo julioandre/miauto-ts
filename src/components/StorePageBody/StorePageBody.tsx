@@ -1,14 +1,8 @@
-import { Badge, Box, Button, Card, CardActions, CardContent, CardMedia,  Container,  createTheme, CssBaseline, Grid, IconButton, Paper, ThemeProvider, Typography } from "@mui/material";
+import { Badge,  Button, Card, CardActions, CardContent, CardMedia,   createTheme, CssBaseline,  IconButton, Paper, ThemeProvider, Typography } from "@mui/material";
 import React, { FC, useState } from "react";
-import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
+import Cart from "./Cart";
 import product from '../../assets/product.png'
-import SearchBar from '../SearchBar'
-import {useStyles} from './StorePageBody.styles'
-import AppSettingsAltIcon from '@mui/icons-material/AppSettingsAlt';
-import HomeIcon from '@mui/icons-material/Home';
-import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
-import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
-import { height } from "@mui/system";
+import SearchBar from '../Searchbar'
 import AppNavBar from "../AppNavBar";
 
 
@@ -32,14 +26,16 @@ const theme = createTheme({
   })
 
 const SearchPageBody:FC<IProps> = (props) => {
-    const classes = useStyles()
+
     const text = "Looking for Products"
     const [cartNumber, setCartNumber]=useState(0);
+    const [cartArray, setCartArray] = useState([{}])
     const cart = [{}]
     const items = [{name:"Gastrol Edge", price:"$25",image:product},{name:"Total Classic", price:"$25",image:product},{name:"Wipers", price:"$50",image:product},{name:"Brake Fluid", price:"$15",image:product},{name:"Engine Oil", price:"$35",image:product}]
     const addToCart=(items)=>{
         setCartNumber(cartNumber+1)
-        cart.push(items)
+        setCartArray(cartArray=>[...cartArray, items])
+        console.log(cart)
     }
     return (
         <>
@@ -47,15 +43,9 @@ const SearchPageBody:FC<IProps> = (props) => {
             <CssBaseline/>
             <div style={{ height:"85vh" }}>
             <Paper sx={{ height:"110%"}}>
-           
+
                 <SearchBar searchtext={text}/>
-           
-           
-            <IconButton sx={{marginLeft:'85%',marginTop:"5%"}} aria-label="notifications" color="inherit">
-                        <Badge badgeContent={cartNumber} color='secondary'> 
-                            <ShoppingCartOutlinedIcon fontSize="large"/>
-                        </Badge>
-            </IconButton>
+                <Cart cartList={cart}/>
             {items.map(item=>{
                 return(
                 <Card  sx={{ display:"flex",width:"70%",height:70,marginLeft:"2%",paddingBottom:"5%", backgroundColor:"white",my:4 }}>
@@ -73,7 +63,7 @@ const SearchPageBody:FC<IProps> = (props) => {
                     </CardActions>
                 </Card>)
             })}
-            <AppNavBar/>
+            <AppNavBar selected="store"/>
             </Paper>
             </div>
         </ThemeProvider>
