@@ -39,6 +39,7 @@ const HomePageJumbotron:React.FC=()=>{
     const [lat, setLat] = useState(0);
     const [lng, setLng] = useState(0);
     const [address,setAddress] = React.useState('')
+    const [status, setStatus] = useState(' ');
     const handleClose = () => {
       setOpen(false);
     };
@@ -61,18 +62,26 @@ const HomePageJumbotron:React.FC=()=>{
         if (!navigator.geolocation) {
           onOpenSuccess( 'Geolocation is not supported by your browser', "error")
         } else {
-          navigator.geolocation.getCurrentPosition((position) => {
-            
-            setLat(position.coords.latitude);
-            setLng(position.coords.longitude);
-            setAddress("Mane")
-            const pos = "your location is " +lat + lng;
-            onOpenSuccess(pos,"success")
-            getAddress(lat,lng);
-            console.log(lat,lng)
-          }, () => {
-            onOpenSuccess( 'Unable to retrieve your location', "error")
-          });
+          if(navigator.geolocation){
+            navigator.permissions
+            .query({name:"geolocation"}).then(function(result){
+              if(result.state ==="granted"){
+                navigator.geolocation.getCurrentPosition((position) => {
+                  setStatus('Located '+position.coords.latitude+ ' '+position.coords.longitude);
+                  setLat(position.coords.latitude);
+                  setLng(position.coords.longitude);
+                  const pos = "your location is " +lat + lng;
+                  onOpenSuccess(pos,"success")
+                  getAddress(lat,lng);
+                  console.log(lat,lng)
+                }, () => {
+                  onOpenSuccess( 'Unable to retrieve your location', "error")
+                });
+              }
+            })
+          }
+          
+         
         }
       }
     
@@ -150,7 +159,7 @@ const HomePageJumbotron:React.FC=()=>{
                                 </DialogTitle>
                             <DialogActions>
                             <Button color="secondary" onClick={handleClose}>Disagree</Button>
-                            <Button color="secondary" onClick={()=>getLocation()} autoFocus>
+                            <Button color="secondary" onClick={getLocation } autoFocus>
                                 Agree
                             </Button>
                             </DialogActions>
