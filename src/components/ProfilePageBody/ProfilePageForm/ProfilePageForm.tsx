@@ -92,7 +92,7 @@ const ProfilePageForm:React.FC=()=>{
                     <TextField sx={{my:2}} name="email" defaultValue="eddiebremmer@gmail.com" onBlur={handleInputValue} onChange={handleInputValue} label="Email" fullWidth autoComplete="none" {...(errors["email"] && { error: true, helperText: errors["email"] })}/>   
                     <TextField sx={{my:2}} name="phone" defaultValue="0123547856"  onBlur={handleInputValue} onChange={handleInputValue} label="Phone" fullWidth autoComplete="none"/>    
                     <Button sx={{my:2}} variant="contained" type="submit" onClick={()=>onOpenSuccess("Profile Updated Succesfully", "success")} color="secondary" fullWidth href="mainpage">Update</Button>
-                    <Button sx={{my:2}} variant="contained" type="submit" color="error" fullWidth href="login">Sign Out</Button>      
+                    <Button sx={{my:2}} variant="contained" type="submit" color="error" fullWidth href="/">Sign Out</Button>      
                 </form>
               </Container>
         

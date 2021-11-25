@@ -1,3 +1,4 @@
+import { IconButton } from '@material-ui/core';
 import { Container, createTheme, Paper, ThemeProvider, Typography } from '@mui/material';
 import React from 'react';
 import logo from '../../assets/logo.png'
@@ -31,7 +32,9 @@ const RegisterPageHeader:React.FC=()=>{
         <ThemeProvider theme={theme}>
             <Paper>
             <Container sx={{display:"flex" ,alignItems:"center", justifyContent:'center',paddingY:3}}>
+              <IconButton href="/">
                 <img src={logo} alt="Miauto" className={classes.img} /> 
+                </IconButton>
             </Container>
             <Typography my="1%" variant="h4" align="center"> Welcome</Typography>
             <Typography  paddingBottom="2%" variant="subtitle1" align="center" color="gray"> Signup to enjoy MiAuto</Typography>

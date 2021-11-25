@@ -7,6 +7,10 @@ import NavBar from '../NavBar';
 import CardComponent from './CardComponent';
 
 import { SnackbarContainer, snackbarService } from "uno-material-ui";
+import Geocode from "react-geocode";
+
+Geocode.setApiKey("AIzaSyA3G_Y3rU08LHbwuYAdWC14FIm0aYWJO1g")
+Geocode.setLanguage("en")
 
 
 
@@ -34,10 +38,21 @@ const HomePageJumbotron:React.FC=()=>{
     const [open1, setOpen1] = React.useState(false);
     const [lat, setLat] = useState(0);
     const [lng, setLng] = useState(0);
-    
+    const [address,setAddress] = React.useState('')
     const handleClose = () => {
       setOpen(false);
     };
+    const getAddress=(lat,long)=>{Geocode.fromLatLng(lat, long).then(
+      (response) => {
+        const getaddress = response.results[0].formatted_address;
+        setAddress(getaddress.toString());
+        console.log("This is "+ address)
+        console.log(getaddress);
+      },
+      (error) => {
+        console.error(error);
+      }
+    );}
 
     const getLocation = () => {
       handleClose();
@@ -50,8 +65,10 @@ const HomePageJumbotron:React.FC=()=>{
             
             setLat(position.coords.latitude);
             setLng(position.coords.longitude);
+            setAddress("Mane")
             const pos = "your location is " +lat + lng;
             onOpenSuccess(pos,"success")
+            getAddress(lat,lng);
             console.log(lat,lng)
           }, () => {
             onOpenSuccess( 'Unable to retrieve your location', "error")
@@ -110,9 +127,9 @@ const HomePageJumbotron:React.FC=()=>{
                         
                         <FormControl className={classes.form} sx={{ mx:'auto'}}  >
                             <FormLabel><Typography color="secondary"  sx={{ m:2 }} align='center' variant="h5">FIND A GARAGE</Typography></FormLabel>
-                            <TextField focused   color="secondary"  onChange={(e)=> setLocation(e.target.value)} InputProps={{ startAdornment:(<InputAdornment position="start" color="secondary" > <RoomIcon color="secondary"  /></InputAdornment> ) }} sx={{ m:1,borderColor:"secondary" }} label="Location/Postcode"  className={classes.boxelements} required/>
+                            <TextField focused  value={address} color="secondary"   InputProps={{ startAdornment:(<InputAdornment position="start" color="secondary" > <RoomIcon color="secondary"  /></InputAdornment> ) }} sx={{ m:1,borderColor:"secondary" }} label="Location/Postcode"  className={classes.boxelements} required/>
                             <TextField focused color="secondary"  onChange={(e)=> setNumber(e.target.value)} InputProps={{startAdornment:(<InputAdornment position="start" color="secondary" > <LocalPhoneIcon color="secondary" /></InputAdornment> ) }} sx={{ m:1,borderColor:"secondary"}} label="Your Phone Number"  className={classes.boxelements} required/>
-                            <Link sx={{ m:1 }} href="#" underline="always" onClick={handleClickOpen}>
+                            <Link  color="inherit" sx={{ m:1}} href="#" underline="always" onClick={handleClickOpen}>
                                 {'I do not know where I am'}
                             </Link>
                             <Dialog
