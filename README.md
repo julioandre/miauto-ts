@@ -1,6 +1,6 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# MiAuto Mobile Front-end Repository
+Welcome to the MiAuto front-end repository. This is the codebase of the front end, of the MiAuto project.
+The usual goal of this project is to build a responsive (smartphones friendly) and bilingual (English & Spanish) web application that allows Meresa’s clients to register cars and follow up their cars’ maintenance or reparations to the detail. 
 
 ## Available Scripts
 
