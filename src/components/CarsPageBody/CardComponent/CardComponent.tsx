@@ -56,7 +56,7 @@ interface ExpandMoreProps extends IconButtonProps {
           <>
       
     <SnackbarContainer/>
-    <Card sx={{ maxWidth: 345,marginBottom:3 ,backgroundColor:'white',borderRadius:'5px'}}>
+    <Card sx={{ marginLeft:"2%",maxWidth: 345,marginBottom:3 ,backgroundColor:'white',borderRadius:'5px'}}>
     <CardHeader
       subheader="Ford Mustang"
       

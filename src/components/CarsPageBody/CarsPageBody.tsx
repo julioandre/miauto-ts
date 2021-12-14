@@ -47,7 +47,7 @@ const CarsPageBody:React.FC=()=>{
             
                 <SearchBar searchtext={searchtext}/>
            
-            <Fab color="primary" onClick={handleClickOpen} aria-label="add" sx={{ position:"fixed", margin:"0% 0% 0% 83%"}}>
+            <Fab color="primary" onClick={handleClickOpen} aria-label="add" sx={{ position:"fixed", margin:"97% 0% 0% 83%"}}>
                 <AddIcon />
             </Fab>
             
