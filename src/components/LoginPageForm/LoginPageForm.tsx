@@ -1,7 +1,12 @@
 import { Button, Container, createTheme, CssBaseline, Paper, TextField, ThemeProvider } from '@mui/material';
-
+import ILogin from '../../types/Login';
+import LoginService from '../../services/LoginService';
 import React, { useState } from 'react';
 import {useStyles} from './LoginPageForm.styles'
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm } from "react-hook-form";
+import { useHistory } from "react-router-dom";
 
 const theme = createTheme({
  
@@ -16,74 +21,78 @@ const theme = createTheme({
   
   })
   
+
+  const schema = yup.object().shape({
+    email: yup.string().required().email(),
+    password: yup.string().required().min(8).max(120),
+    
+  
+  });
 const LoginPageForm:React.FC=()=>{
+   const history= useHistory();
     const classes= useStyles()
-    const [errors, setErrors] = useState({} as any);
-    const initialFormValues = {
-        email: "",
-        password: "",
-        formSubmitted: false,
-        success: false
-      }
-    const validate: any = (fieldValues = values) => {
-    // this function will check if the form values are valid
-    let temp: any = { ...errors }
-
-    if ("password" in fieldValues)
-        temp.password = fieldValues.password ? "" : "This field is required."
-
-   
-
-
-    if ("email" in fieldValues) {
-        temp.email = fieldValues.email ? "" : "This field is required."
-        if (fieldValues.email)
-        temp.email = /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(fieldValues.email)
-            ? ""
-            : "Email is not valid."
-    }
-
-
-    setErrors({
-        ...temp
+    const {
+      register,
+      handleSubmit,
+      formState: { errors },
+    } = useForm<ILogin>({
+      resolver: yupResolver(schema),
     });
+    const responses={
+      message:" ",
+      successful:false,
     }
-    const [values, setValues] = useState(initialFormValues);
-    const handleFormSubmit = async (e: any) => {
-    // this function will be triggered by the submit event
-    e.preventDefault();
-    if (formIsValid()) {
-        await postContactForm(values);
-        alert("You've posted your form!")
-    }
-    }
-    const formIsValid: any = (fieldValues = values) => {
-    // this function will check if the form values and return a boolean value
-    const isValid =
-    fieldValues.password &&
-    fieldValues.email &&
-    Object.values(errors).every((x) => x === "");
+    const [message, setMessage] = useState(responses);
+    const [json, setJson] = useState<string>();
+    
+    
+    const onSubmit = (data: ILogin) => {
+      LoginService.login(data).then(() => {
+        history.push("/garages");
+        window.location.reload();
 
-    return isValid;
-    }
-    const handleInputValue: any = (e: any) => {
-        // this function will be triggered by the text field's onBlur and onChange events
-        const{name,value}=e.target;
-        setValues({
-          ...values,
-          [name]:value
+      },error => {
+        const resMessage =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
+
+        setMessage({
+          successful: false,
+          message: resMessage
         });
-        validate({ [name]: value})
       }
+    ); 
+      
+      console.log(data)
+      setJson(JSON.stringify(data));
+    };
     return(
         <>
         <ThemeProvider theme={theme}>
             <CssBaseline/>
             <Paper className={classes.paper}>
             <Container >
-              <form onSubmit={handleFormSubmit}>
-                    <TextField sx={{my:2}} name="email" onBlur={handleInputValue} onChange={handleInputValue} label="Email" fullWidth autoComplete="none" {...(errors["email"] && { error: true, helperText: errors["email"] })}/>   
-                    <TextField sx={{my:2}} name="password" onBlur={handleInputValue} onChange={handleInputValue} label="Password" fullWidth autoComplete="none" {...(errors["password"] && { error: true, helperText: errors["password"]  })}/>   
+              <form onSubmit={handleSubmit(onSubmit)}>
+                    <TextField sx={{my:2}} {...register("email")}
+                          variant="outlined"
+                          margin="normal"
+                          label="Email"
+                          helperText={errors.email?.message}
+                          error={!!errors.email?.message}
+                          fullWidth
+                          required/>   
+                    <TextField sx={{my:2}}  {...register("password")}
+                      variant="outlined"
+                      margin="normal"
+                      label="Password"
+                      helperText={errors.password?.message}
+                      error={!!errors.password?.message}
+                      type="password"
+                      fullWidth
+                      required/>   
                     <Button sx={{my:2}} variant="contained" type="submit" color="secondary" fullWidth href="garages">Login</Button>   
                 </form>
               </Container>
