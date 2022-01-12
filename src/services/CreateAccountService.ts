@@ -1,4 +1,3 @@
-import axios from "axios";
 import ICreateAccountData from '../types/CreateAccount'
 import http from "../http-common";
 

@@ -170,9 +170,9 @@ const RegisterPageForm:React.FC=()=>{
                     <TextField sx={{my:2}}  {...register("phone_number")}
                         variant="outlined"
                         margin="normal"
-                        label="Password"
-                        helperText={errors.password?.message}
-                        error={!!errors.password?.message}
+                        label="Number"
+                        helperText={errors.phone_number?.message}
+                        error={!!errors.phone_number?.message}
                         type="phone_number"
                         fullWidth
                         required/> 
@@ -180,8 +180,8 @@ const RegisterPageForm:React.FC=()=>{
                       variant="outlined"
                       margin="normal"
                       label="Address"
-                      helperText={errors.password?.message}
-                      error={!!errors.password?.message}
+                      helperText={errors.address?.message}
+                      error={!!errors.address?.message}
                       type="address"
                       fullWidth
                       required/> 
