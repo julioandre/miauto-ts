@@ -44,7 +44,7 @@ const SearchPageBody:FC<IProps> = (props) => {
             <div style={{ height:"85vh" }}>
             <Paper sx={{ height:"110%"}}>
 
-                <SearchBar searchtext={text}/>
+                
                 <Cart cartList={cart}/>
             {items.map(item=>{
                 return(

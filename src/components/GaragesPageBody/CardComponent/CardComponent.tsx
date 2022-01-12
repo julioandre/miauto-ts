@@ -21,8 +21,10 @@ interface ExpandMoreProps extends IconButtonProps {
       duration: theme.transitions.duration.shortest,
     }),
   }));
-
-  const CardComponent:React.FC=()=>{
+  type Props={
+    data:any
+  }
+  const CardComponent:React.FC<Props>=({data})=>{
   
     const onOpenSuccess = (text,texttype) => {
       snackbarService.showSnackbar(text,texttype);
@@ -48,9 +50,9 @@ interface ExpandMoreProps extends IconButtonProps {
           <>
         
     <SnackbarContainer/>
-    <Card sx={{ maxWidth: 345,marginBottom:3 ,backgroundColor:'white',borderRadius:'5px'}}>
+    <Card sx={{ maxWidth: 345,marginBottom:3 ,backgroundColor:'white',borderRadius:'5px',marginLeft:3}}>
     <CardHeader
-      subheader="Quito,Ecuador"
+      subheader={data.address}
       
     />
     <CardMedia
@@ -61,7 +63,13 @@ interface ExpandMoreProps extends IconButtonProps {
     />
     <CardContent>
       <Typography variant="h5" color="text.secondary">
-         Tito's Garage
+         {data.name}
+      </Typography>
+      <Typography variant='subtitle2' color="text.secondary">
+          Phone:{data.phone_number}
+      </Typography>
+      <Typography variant='subtitle2' color="text.secondary">
+          Email:{data.email}
       </Typography>
     </CardContent>
     <CardActions disableSpacing>

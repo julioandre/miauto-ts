@@ -47,9 +47,13 @@ const LoginPageForm:React.FC=()=>{
     
     
     const onSubmit = (data: ILogin) => {
-      LoginService.login(data).then(() => {
-        history.push("/garages");
-        window.location.reload();
+      LoginService.login(data).then((response) => {
+        if (response.data) {
+          localStorage.setItem("user", JSON.stringify(response.data));
+        }
+
+        console.log(localStorage.getItem("user"));
+        history.push("/garages")
 
       },error => {
         const resMessage =
@@ -93,7 +97,7 @@ const LoginPageForm:React.FC=()=>{
                       type="password"
                       fullWidth
                       required/>   
-                    <Button sx={{my:2}} variant="contained" type="submit" color="secondary" fullWidth href="garages">Login</Button>   
+                    <Button sx={{my:2}} variant="contained" type="submit" color="secondary" fullWidth >Login</Button>   
                 </form>
               </Container>
             </Paper>

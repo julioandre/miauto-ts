@@ -7,6 +7,7 @@ import { ThemeProvider } from '@mui/private-theming';
 import { arrayIndexingWithLength } from '../../utils/arrayIndexingWithLength';
 import AppNavBar from '../AppNavBar';
 import CardComponent from './CardComponent'
+import { useState } from 'react';
 
 
 
@@ -30,6 +31,9 @@ const theme = createTheme({
 
 const CarsPageBody:React.FC=()=>{
     const [open, setOpen] = React.useState(false);
+    const [search, setSearch]= useState<string>(" ")
+    const updateSearch = (name: string):void => {
+      setSearch(name)}
     const handleClose = () => {
       setOpen(false);
     };
@@ -45,7 +49,7 @@ const CarsPageBody:React.FC=()=>{
         <CssBaseline/>
         <Paper >
             
-                <SearchBar searchtext={searchtext}/>
+                <SearchBar updateText={updateSearch}/>
            
             <Fab color="primary" onClick={handleClickOpen} aria-label="add" sx={{ position:"fixed", margin:"0% 0% 0% 83%"}}>
                 <AddIcon />
