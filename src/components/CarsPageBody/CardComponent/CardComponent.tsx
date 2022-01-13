@@ -23,8 +23,10 @@ interface ExpandMoreProps extends IconButtonProps {
       duration: theme.transitions.duration.shortest,
     }),
   }));
-
-  const CardComponent:React.FC=()=>{
+  type Props={
+    data:any
+  }
+  const CardComponent:React.FC<Props>=({data})=>{
     const onOpenSuccess = (text,texttype) => {
       snackbarService.showSnackbar(text,texttype);
     };
@@ -37,28 +39,22 @@ interface ExpandMoreProps extends IconButtonProps {
         setOpen(false);
       };
     const [expanded, setExpanded] = React.useState(false);
-    const [disabled, setDisabled]= useState(true);
-    const [housenumber, setHouseNumber] = useState(' ');
-    const [datevalue, setDateValue] = useState(' ');
 
     const handleExpandClick = () => {
       setExpanded(!expanded);
      
     };
-    const handleEdit=()=>{
-      setDisabled(!disabled)
-      setExpanded(!expanded)
-      onOpenSuccess("Car Updated Succesfully","success");
-    }
    
     
       return(
           <>
       
     <SnackbarContainer/>
-    <Card sx={{ marginLeft:"2%",maxWidth: 345,marginBottom:3 ,backgroundColor:'white',borderRadius:'5px'}}>
+
+    <Card sx={{ maxWidth: 345,marginBottom:3 ,backgroundColor:'white',borderRadius:'5px',marginLeft:3}}>
+
     <CardHeader
-      subheader="Ford Mustang"
+      subheader={data.make+" "+ data.model}
       
     />
     <CardMedia
@@ -69,7 +65,7 @@ interface ExpandMoreProps extends IconButtonProps {
     />
     <CardContent>
       <Typography variant="h5" color="text.secondary">
-         Car Number: MY6712
+         Car Number:{data.plate}
       </Typography>
     </CardContent>
     <CardActions disableSpacing>
@@ -87,35 +83,18 @@ interface ExpandMoreProps extends IconButtonProps {
     </CardActions>
     <Collapse in={expanded} timeout="auto" unmountOnExit>
       <CardContent>
-      <TextField
-          disabled={disabled}
-          id="outlined-disabled"
-          label="Car Number"
-          defaultValue="MY6712"
-          
-          
-        />
-       
-        <TextField
-          disabled={disabled}
-          id="outlined-disabled" 
-          label="Mileage"
-          defaultValue="6712"
-          sx={{ my:2 }}
-          
-          
-        ><MenuItem> KM </MenuItem> </TextField>
-         <TextField
-          disabled
-          id="outlined-disabled"
-          label="Last Visit"
-          defaultValue="12/10/2021"
-          
-        />
-        <Button sx={{my:2}} variant="contained" color="secondary" fullWidth onClick={handleEdit}>Edit Car Details</Button>
-        <Button sx={{my:2}} variant="contained" color="secondary" fullWidth onClick={handleEdit}>Save</Button>
-        
-
+      <Typography variant="subtitle2"  color="text.secondary" >
+        Color: {data.color}
+      </Typography>
+      <Typography variant="subtitle2"  color="text.secondary" >
+        Engine: {data.engine}
+      </Typography>
+      <Typography variant="subtitle2"  color="text.secondary" >
+        Fuel: {data.fuel}
+      </Typography>
+      <Typography variant="subtitle2"  color="text.secondary" >
+        Type: {data.type}
+      </Typography>
             
       </CardContent>
     </Collapse>

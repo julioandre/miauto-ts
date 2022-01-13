@@ -1,11 +1,11 @@
 import React, { FC } from "react";
 import Headers from '../../components/Headers'
-import StorePageBody from '../../components/StorePageBody'
+import StorePageBody from '../../components/Appointments'
 
 interface IProps {};
 
 const StorePage:FC<IProps> = (props) => {
-    const text ="Looking For Something to Buy?"
+    const text ="Your Appointments"
     return (
         <div>
             <Headers searchtext={text}/>

@@ -15,33 +15,9 @@ const ProfilePageBody:React.FC=()=>{
     return(
         <>
         
-        <Paper>
+        <Paper sx={{ marginTop:10,height:"700px" }}>
        
-            <Typography variant="h5" marginTop="10%" marginLeft="5%"> Upcoming Appointments</Typography>
-        <Carousel className={classes.container} >
-                
-                {arrayIndexingWithLength(4).map((v)=>
-                     <Card sx={{ maxWidth:345, marginLeft:"4%",marginTop:"2%"}}>
-                     <CardActionArea>
-                       <CardMedia
-                         component="img"
-                         height="140"
-                         image={store}
-                         alt="store"
-                       />
-                       <CardContent>
-                         <Typography gutterBottom variant="h5" component="div">
-                            Titos Garage
-                         </Typography>
-                         <Typography variant="body2" color="text.secondary">
-                          
-                         </Typography>
-                       </CardContent>
-                     </CardActionArea>
-                   </Card>
-                )}
-                
-            </Carousel>
+
         <ProfilePageForm/>
         <AppNavBar selected="profile"/>
         

@@ -5,6 +5,10 @@ import { ThemeProvider } from '@mui/private-theming';
 import CardComponent from './CardComponent';
 import { arrayIndexingWithLength } from '../../utils/arrayIndexingWithLength';
 import AppNavBar from '../AppNavBar';
+import { useState } from 'react';
+import IGarage from '../../types/Garages';
+import getGarages from '../../services/getGarages';
+import { useEffect } from 'react';
 
 
 const theme = createTheme({
@@ -21,21 +25,54 @@ const theme = createTheme({
       },
     }
   })
-
+  
 const GaragesPageBody:React.FC=()=>{
     
-    const searchtext = "Looking for a Garage"
+  useEffect(()=>{
+    getgarage()
+},[])
+    const [data,setData] = useState<Array<IGarage>>([])
+    const [searchText,setSearch] = useState("")
+    
+ 
+ const getgarage=()=>{
+  const userStr = localStorage.getItem("user");
+  var userToken
+  if (userStr) userToken= JSON.parse(userStr);
+  getGarages.getAllGarages(userToken).then((response:any)=>{
+    setData(response.data.data);
+  })
+  .catch((e: Error) => {
+    console.log(e);
+  });
+ }
+ 
+ const updateSearch = (name: string):void => {
+  setSearch(name)
+  const userStr = localStorage.getItem("user");
+  var userToken
+  if (userStr) userToken= JSON.parse(userStr);
+  getGarages.getGarageName(userToken,searchText).then((response:any)=>{
+    setData([])
+    setData(response.data.data)
+    console.log(data)
+  })
+  .catch((e: Error) => {
+    console.log(e);
+  });
+
+}
     return(
         <>
         <ThemeProvider theme={theme}>
         <CssBaseline/>
         <Paper sx={{  }}>
             
-              <SearchBar searchtext={searchtext}/>
-            
-            {arrayIndexingWithLength(3).map((v)=>(
-                     <CardComponent/>
-                  ))}
+              <SearchBar updateText={updateSearch}/>
+
+            {data.map((garageData,i)=>
+              <CardComponent key={i} data={garageData}/>
+            )}
         <Box sx={{ marginTop:"15%" }}>
         <AppNavBar selected="garage"/>
         </Box>

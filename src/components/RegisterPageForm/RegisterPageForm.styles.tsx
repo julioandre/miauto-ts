@@ -5,7 +5,6 @@ export const useStyles = makeStyles((theme:Theme)=>createStyles({
     paper:{
         justifyContent:'center',
         alignItems:'center',
-        height:'75vh',
         marginTop:'0'
         
     },

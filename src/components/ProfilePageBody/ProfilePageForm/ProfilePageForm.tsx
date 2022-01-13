@@ -1,7 +1,9 @@
 import { Button, Container, createTheme, CssBaseline, FormLabel, TextField, ThemeProvider } from '@mui/material';
 import { SnackbarContainer, snackbarService } from "uno-material-ui";
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import LoginService from '../../../services/LoginService';
+import IClient from '../../../types/Clients';
 
 
 const theme = createTheme({
@@ -16,11 +18,33 @@ const theme = createTheme({
     },
   
   })
+  const initialVals={
+   
+  }
   
 const ProfilePageForm:React.FC=()=>{
-  const onOpenSuccess = (text,texttype) => {
-    snackbarService.showSnackbar(text,texttype);
-  };
+    useEffect(()=>{
+      getName()
+  },[])
+  const [name,setName] = useState()
+  const [address,setAddress] = useState()
+  const [email,setEmail] = useState()
+  const [number,setNumber] = useState()
+  const getName=()=>{
+  const userStr = localStorage.getItem("user");
+  var userToken
+  if (userStr) userToken= JSON.parse(userStr);
+  LoginService.getUser(userToken).then((response:any)=>{
+    console.log(response.data.id)
+    setName(response.data.first_name);
+    setAddress(response.data.address)
+    setEmail(response.data.email)
+    setNumber(response.data.phone_number)
+  })
+  .catch((e: Error) => {
+    console.log(e);
+  });
+  }
     
     const [errors, setErrors] = useState({} as any);
     const initialFormValues = {
@@ -84,14 +108,13 @@ const ProfilePageForm:React.FC=()=>{
         <ThemeProvider theme={theme}>
             <CssBaseline/>
             <SnackbarContainer/>
-            <Container sx={{ marginTop:"10%",paddingBottom:"23%" }} >
-              <form onSubmit={handleFormSubmit}>
-                  <FormLabel>Profile Information</FormLabel>
-                    <TextField sx={{my:2}} name="name" defaultValue="Eddie Bremmer" onBlur={handleInputValue} onChange={handleInputValue} label="Name" fullWidth autoComplete="none" />   
-                    <TextField sx={{my:2}} name="address" defaultValue="Quito 65, 9087" onBlur={handleInputValue} onChange={handleInputValue} label="Address" fullWidth autoComplete="none" />
-                    <TextField sx={{my:2}} name="email" defaultValue="eddiebremmer@gmail.com" onBlur={handleInputValue} onChange={handleInputValue} label="Email" fullWidth autoComplete="none" {...(errors["email"] && { error: true, helperText: errors["email"] })}/>   
-                    <TextField sx={{my:2}} name="phone" defaultValue="0123547856"  onBlur={handleInputValue} onChange={handleInputValue} label="Phone" fullWidth autoComplete="none"/>    
-                    <Button sx={{my:2}} variant="contained" type="submit" onClick={()=>onOpenSuccess("Profile Updated Succesfully", "success")} color="secondary" fullWidth href="mainpage">Update</Button>
+            <Container sx={{ paddingTop:5,paddingBottom:"23%" }} >
+              <form onSubmit={handleFormSubmit} >
+                  <FormLabel sx={{ marginTop:5 }}>Profile Information</FormLabel>
+                    <TextField sx={{my:2}} name="name" value={name}  fullWidth autoComplete="none" disabled  />   
+                    <TextField sx={{my:2}} name="address" value={address}   fullWidth autoComplete="none" disabled />
+                    <TextField sx={{my:2}} name="email" value={email}  fullWidth autoComplete="none" disabled {...(errors["email"] && { error: true, helperText: errors["email"] })}/>   
+                    <TextField sx={{my:2}} name="phone" value={number}    fullWidth autoComplete="none"disabled />    
                     <Button sx={{my:2}} variant="contained" type="submit" color="error" fullWidth href="/">Sign Out</Button>      
                 </form>
               </Container>
