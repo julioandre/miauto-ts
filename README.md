@@ -2,7 +2,21 @@
 Welcome to the MiAuto front-end repository. This is the codebase of the front end, of the MiAuto project.
 The usual goal of this project is to build a responsive (smartphones friendly) and bilingual (English & Spanish) web application that allows Meresa’s clients to register cars and follow up their cars’ maintenance or reparations to the detail. 
 
-## Available Scripts
+## Contents of the repository 
+As mentioned this repository contains only the front-end part of the project. In other words, the react app. The architecture of the project looks like this:
+
+ 
+![image](https://user-images.githubusercontent.com/17905921/146116717-99c25064-b1ce-4489-8baf-70f881399150.png)
+
+## Mode of Code Contribution
+
+To keep the repository clean and structured. When contributing to this repo, developers are required to make a branch with the name as the feature they are working on. When they are done they make pull requests to have the code merged, and after a review from another developer only then can the code be merged to the main branch. 
+
+## Deployment 
+This web application is hoated and can be found at the link below:
+https://miautots.web.app/
+
+## Starting the Project
 
 In the project directory, you can run:
 

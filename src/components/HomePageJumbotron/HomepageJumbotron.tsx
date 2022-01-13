@@ -72,8 +72,9 @@ const HomePageJumbotron:React.FC=()=>{
                   setLng(position.coords.longitude);
                   const pos = "your location is " +lat + lng;
                   onOpenSuccess(pos,"success")
-                  getAddress(lat,lng);
-                  console.log(lat,lng)
+
+                  getAddress(position.coords.latitude,lng);
+                  console.log(position.coords.longitude,position.coords.longitude)
                 }, () => {
                   onOpenSuccess( 'Unable to retrieve your location', "error")
                 });
