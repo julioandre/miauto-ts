@@ -25,7 +25,7 @@ const theme = createTheme({
       },
     }
   })
-
+  
 const GaragesPageBody:React.FC=()=>{
     
   useEffect(()=>{
@@ -46,6 +46,7 @@ const GaragesPageBody:React.FC=()=>{
     console.log(e);
   });
  }
+ 
  const updateSearch = (name: string):void => {
   setSearch(name)
   const userStr = localStorage.getItem("user");

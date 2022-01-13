@@ -1,15 +1,16 @@
 import http from "../http-common";
-import ICars from "../types/Cars";
+import IAppointments from "../types/Appointments";
 
-const addCar=(data:ICars,your_token)=>{
-    return http.post<ICars>("/api/client/cars",data,{headers:{'Authorization': `Bearer ${your_token}`,
+const getAppointments= (your_token)=>{
+    return http.get<Array<IAppointments>>("/api/reservation",{headers:{'Authorization': `Bearer ${your_token}`,
     'Content-Type': 'application/json','Access-Control-Allow-Origin':'*','Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS','Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token'}});
 }
-const getCars = (your_token)=>{
-    return http.get<Array<ICars>>("/api/client/cars",{headers:{'Authorization': `Bearer ${your_token}`,
+const makeAppointments= (data,your_token)=>{
+    return http.post<Array<IAppointments>>("/api/reservation",data,{headers:{'Authorization': `Bearer ${your_token}`,
     'Content-Type': 'application/json','Access-Control-Allow-Origin':'*','Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS','Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token'}});
 }
-const CarServices={
-    addCar,getCars
+
+const AppointmentService={
+    getAppointments,makeAppointments
 }
-export default CarServices
+export default AppointmentService

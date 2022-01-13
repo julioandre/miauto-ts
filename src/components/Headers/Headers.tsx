@@ -1,10 +1,11 @@
 import { Avatar, Badge, Box, Container, createTheme, CssBaseline, FormControl, Grid, IconButton, InputAdornment, InputLabel, MenuItem,  ThemeProvider, Typography } from '@mui/material';
 import profile from '../../assets/profile.jpeg'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import { useStyles } from './Headers.styles'
+import LoginService from '../../services/LoginService';
 
 
  const theme= createTheme({
@@ -19,6 +20,22 @@ import { useStyles } from './Headers.styles'
   }
 
 const Headers:React.FC<Props>=({searchtext})=>{
+    useEffect(()=>{
+        getName()
+    },[])
+    const [name,setName] = useState()
+  const getName=()=>{
+    const userStr = localStorage.getItem("user");
+    var userToken
+    if (userStr) userToken= JSON.parse(userStr);
+    LoginService.getUser(userToken).then((response:any)=>{
+      console.log(response.data.id)
+      setName(response.data.first_name);
+    })
+    .catch((e: Error) => {
+      console.log(e);
+    });
+  }
     const [location, setLocation] = React.useState('Quito');
 
     const handleChange = (event: SelectChangeEvent) => {
@@ -64,7 +81,7 @@ const Headers:React.FC<Props>=({searchtext})=>{
                     
                     </Grid>
                 <Container sx={{ marginLeft:'2%',marginTop:'5%' }}>
-                <Typography variant="h5" color="gray">Welcome Back Eddie</Typography>
+                <Typography variant="h5" color="gray">Welcome Back {name}</Typography>
                 <Typography variant="h5" color="#143656">{searchtext}</Typography>
                 </Container>
             </ThemeProvider>       

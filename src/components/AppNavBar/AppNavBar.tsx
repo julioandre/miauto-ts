@@ -34,7 +34,7 @@ const AppNavBar:FC<IProps> = ({selected}) => {
         >
           <BottomNavigationAction href="garages"  value="garage" label="Garages" icon={<GarageIcon />} />
           <BottomNavigationAction href="/cars" value="cars" label="Cars" icon={<DirectionsCarIcon />} />
-          <BottomNavigationAction href="/store" value="store" label="Store" icon={<StoreIcon/>} />
+          <BottomNavigationAction href="/store" value="appointment" label="Appointment" icon={<StoreIcon/>} />
           <BottomNavigationAction href="/profile" value="profile" label="Profile" icon={<SettingsIcon />} />
         </BottomNavigation>
       </Paper>

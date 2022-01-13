@@ -1,10 +1,12 @@
-import { Alert,  Button, Card, CardActions, CardContent, CardHeader, CardMedia, Collapse, IconButton, IconButtonProps, Snackbar, styled, TextField, Typography } from '@mui/material';
+import { Alert,  Button, Card, CardActions, CardContent, CardHeader, CardMedia, Collapse, IconButton, IconButtonProps, Snackbar, Stack, styled, TextField, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import store from '../../../assets/store.jpeg'
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { SnackbarContainer, snackbarService } from "uno-material-ui";
-
-
+import AppointmentService from '../../../services/AppointmentService';
+import LocalizationProvider from '@mui/lab/LocalizationProvider';
+import TimePicker from '@mui/lab/TimePicker';
+import AdapterDateFns from '@mui/lab/AdapterDateFns';
 
 
 interface ExpandMoreProps extends IconButtonProps {
@@ -29,21 +31,58 @@ interface ExpandMoreProps extends IconButtonProps {
     const onOpenSuccess = (text,texttype) => {
       snackbarService.showSnackbar(text,texttype);
     };
+    const responses={
+      message:" ",
+      successful:false,
+    }
+    const [message, setMessage] = useState(responses);
+
+    const [json, setJson] = useState<string>();
+    const [startTime, setstartTime] = useState('')
+    const [endTime, setendTime] = useState(' ')
+    
+    const makeApt=()=>{
+      const userStr = localStorage.getItem("user");
+      var userToken
+      if (userStr) userToken= JSON.parse(userStr);
+    
+     }
     const [expanded, setExpanded] = React.useState(false);
-    const [postcode, setPostcode]= useState(' ');
-    const [housenumber, setHouseNumber] = useState(' ');
+    const [descrip, setDescription]= useState(' ');
     const [datevalue, setDateValue] = useState(' ');
 
     const handleExpandClick = () => {
       setExpanded(!expanded);
     };
+    
    
     const handleFormSubmit = async (e: any) => {
         // this function will be triggered by the submit event
         e.preventDefault();
-        if(postcode && housenumber && datevalue){
-            onOpenSuccess("Succesfully Booked Appointment", "success")
+        const userStr = localStorage.getItem("user");
+        var userToken
+        if (userStr) userToken= JSON.parse(userStr);
+        AppointmentService.makeAppointments(data={user_id:28,garage_id:1,vin_number:"56342",description:descrip,date:datevalue,startingTime:startTime,endingTime:endTime},userToken).then(response=>{
+          onOpenSuccess("Appointment made","success")
+          window.location.reload()
+        },error => {
+          const resMessage =
+            (error.response &&
+              error.response.data &&
+              error.response.data.message) ||
+            error.message ||
+            error.toString();
+            onOpenSuccess("Car could not be added","error")
+          setMessage({
+            successful: false,
+            message: resMessage
+          });
         }
+      ); 
+        
+        console.log(data)
+        setJson(JSON.stringify(data));
+        
        
         }
       return(
@@ -88,9 +127,10 @@ interface ExpandMoreProps extends IconButtonProps {
     <Collapse in={expanded} timeout="auto" unmountOnExit>
       <CardContent>
       <form onSubmit={handleFormSubmit}>
-            <TextField sx={{my:2}} name="postcode"  onChange={(e)=> setPostcode(e.target.value)}label="postcode" fullWidth autoComplete="none" />   
-            <TextField sx={{my:2}} name="address" onChange={(e)=> setHouseNumber(e.target.value)}label="housenumber" fullWidth autoComplete="none" /> 
-            <TextField
+            
+           <LocalizationProvider dateAdapter={AdapterDateFns}>
+      <Stack spacing={3}>
+      <TextField
                 id="date"
                 label="Select Date"
                 type="date"
@@ -101,6 +141,47 @@ interface ExpandMoreProps extends IconButtonProps {
                 shrink: true,
                 }}
             />
+        <TextField
+          type="time"
+          defaultValue="08:00"
+          value={startTime}
+          label="Start Time"
+          InputLabelProps={{
+            shrink: true,
+            }}
+          onChange={(newValue) => {
+            setstartTime(newValue.target.value);
+            const newt =new Date(startTime).getHours()+1
+            setendTime(newt.toString())
+            
+          }}
+        />
+         <TextField
+          type="time"
+          defaultValue="09:00"
+          value={endTime}
+          label="End Time"
+          InputLabelProps={{
+            shrink: true,
+            }}
+          onChange={(newValue) => {
+            setendTime(newValue.target.value);
+            
+          }}
+        />
+        <TextField
+          id="outlined-multiline-static"
+          label="Description"
+          multiline
+          rows={3}
+          value={descrip}
+          onChange={(newValue)=>{
+            setDescription(newValue.target.value)
+          }}
+        />
+      </Stack>
+    </LocalizationProvider>
+    
             
             <Button sx={{my:2}} variant="contained" type="submit" color="secondary" fullWidth >Schedule Appointment</Button>   
       </form>

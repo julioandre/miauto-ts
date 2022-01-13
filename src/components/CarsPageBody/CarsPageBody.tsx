@@ -15,6 +15,8 @@ import ICars from '../../types/Cars';
 import CarServices from '../../services/CarServices';
 import LoginService from '../../services/LoginService';
 import { number } from 'yup/lib/locale';
+import { SnackbarContainer, snackbarService } from "uno-material-ui";
+import { useEffect } from 'react';
 
 const theme = createTheme({
     palette:{
@@ -48,6 +50,13 @@ const theme = createTheme({
   });
     
 const CarsPageBody:React.FC=()=>{
+  useEffect(()=>{
+    getAllCars()
+},[])
+    const [data,setData] = useState<Array<ICars>>([])
+  const onOpenSuccess = (text,texttype) => {
+    snackbarService.showSnackbar(text,texttype);
+  };
   const [id,setID] = useState(number)
   const getID=()=>{
     const userStr = localStorage.getItem("user");
@@ -87,12 +96,26 @@ const CarsPageBody:React.FC=()=>{
         getID()
         setOpen(true);
     };
+    const getAllCars=()=>{
+      const userStr = localStorage.getItem("user");
+      var userToken
+      if (userStr) userToken= JSON.parse(userStr);
+      CarServices.getCars(userToken).then((response:any)=>{
+        setData(response.data.data);
+      })
+      .catch((e: Error) => {
+        console.log(e);
+      });
+     }
     const onSubmit=(data:ICars)=>{
       const userStr = localStorage.getItem("user");
       var userToken
       if (userStr) userToken= JSON.parse(userStr);
       CarServices.addCar(data,userToken).then(response=>{
         setMessage({message:response.data.message,successful:true});
+        onOpenSuccess("Car Succesfully Added","success")
+        handleClose()
+        window.location.reload()
       },error => {
         const resMessage =
           (error.response &&
@@ -100,7 +123,7 @@ const CarsPageBody:React.FC=()=>{
             error.response.data.message) ||
           error.message ||
           error.toString();
-
+          onOpenSuccess("Car could not be added","error")
         setMessage({
           successful: false,
           message: resMessage
@@ -118,6 +141,7 @@ const CarsPageBody:React.FC=()=>{
         <>
         <ThemeProvider theme={theme}>
         <CssBaseline/>
+        <SnackbarContainer/>
         <Paper >
             
                 <SearchBar updateText={updateSearch}/>
@@ -251,11 +275,9 @@ const CarsPageBody:React.FC=()=>{
                 </DialogActions>
                         </Dialog>
                         
-            {arrayIndexingWithLength(3).map((v)=>(
-
-                     <CardComponent/>
-
-                  ))}
+            {data.map((carsData,i)=>
+              <CardComponent key={i} data={carsData}/>
+            )}
             
             <Box sx={{ marginTop:"15%" }}>
         <AppNavBar selected="cars"/>
